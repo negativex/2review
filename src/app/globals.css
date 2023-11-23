@@ -25,3 +25,52 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+/* Phần này là của carousel */
+.embla {
+  --slide-spacing: 1rem;
+  --slide-size: 15%;
+  --slide-height: 15rem;
+  /* padding: 1.6rem; */
+}
+.embla__container {
+  backface-visibility: hidden;
+  display: flex;
+  touch-action: pan-y;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+.embla_hot {
+  --slide-spacing: 1rem;
+  --slide-size: 20%;
+  --slide-height: 19rem;
+  /* padding: 1.6rem; */
+}
+.embla__container_hot {
+  backface-visibility: hidden;
+  display: flex;
+  touch-action: pan-y;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+.embla__class-names {
+  transition: opacity 0.2s ease-in-out;
+}
+.embla__class-names:not(.is-snapped) {
+  opacity: 0.16;
+}
+.landing__carousel {
+  position: relative;
+  background-color: var(--background-code);
+}
+@media (max-width: 749px) {
+  .landing__carousel {
+    border-top: 0.1rem solid var(--detail-low-contrast);
+    border-bottom: 0.1rem solid var(--detail-low-contrast);
+  }
+}
+@media (min-width: 750px) {
+  .landing__carousel {
+    border-radius: 0.4rem;
+    border: 0.1rem solid var(--detail-low-contrast);
+  }
+}
+/* Kết thúc phần của carousel */
