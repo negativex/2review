@@ -83,15 +83,18 @@ const Footer = () => {
                   type="email"
                 />
                 <label class="usernameLabel" for="inputField">
-                  <FontAwesomeIcon
-                    icon={faExclamation}
-                    shake
-                    style={{ color: "#ffffff" }}
-                  />
                   Đăng ký để không thành tối cổ
                 </label>
-                
+                <FontAwesomeIcon
+                  icon={faExclamation}
+                  shake
+                  className="userIcon"
+                  style={{ color: "#ffffff" }}
+                />
               </div>
+              <button>
+                <span class="icon-keyboard_backspace"></span>
+              </button>
             </div>
           </form>
         </address>

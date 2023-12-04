@@ -160,8 +160,8 @@
       .userIcon {
         position: absolute;
         width: 12px;
-        top: -26px;
-        left: 10px;
+        top: -20px;
+        
         opacity: 0;
         transition: 0.2s linear;
       }
@@ -197,7 +197,7 @@
         transition-duration: 0.3s;
       }
       
-      .footer .subscribe .form-group button_form {
+      .footer .subscribe .form-group button {
         position: absolute;
         border: none;
         background: none;
@@ -209,8 +209,8 @@
         right: 0.3rem;
         line-height: 0;
       }
-      .footer .subscribe .form-group button_form:focus,
-      .footer .subscribe .form-group button_form:active {
+      .footer .subscribe .form-group button:focus,
+      .footer .subscribe .form-group button:active {
         outline: none;
       }
   }
