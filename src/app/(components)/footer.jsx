@@ -99,17 +99,18 @@ const Footer = () => {
             </div>
           </form>
         </address>
-        <div class="footer__logo">
+      
           <Link href="/">
             <Image
               href="/"
               src="/logo2.svg"
-              width={150}
-              height={150}
+              width={250}
+              height={250}
               alt="Logo"
+              className="footer__logo"
             />
           </Link>
-        </div>
+        
       </div>
 
       <ul class="footer__nav">
