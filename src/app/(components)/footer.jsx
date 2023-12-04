@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExclamation, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faExclamation, faArrowRight, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import "../css/footer.css";
 const Footer = () => {
   return (
@@ -93,7 +93,7 @@ const Footer = () => {
                 />
               </div>
               <button>
-                <span class="icon-keyboard_backspace"></span>
+                <span><FontAwesomeIcon icon={faArrowRight} shake /></span>
               </button>
             </div>
           </form>
