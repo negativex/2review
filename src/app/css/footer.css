@@ -36,8 +36,9 @@
   }
   
   .footer__logo {
-    display: flex;
-    padding: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
     
   }
   
@@ -206,8 +207,6 @@
       }
       .footer .subscribe .form-group button:focus,
       .footer .subscribe .form-group button:active {
-        background-color: #ffff;
-        transition-duration: 0.3s;
-        
+        outline: none;
       }
   }
