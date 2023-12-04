@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExclamation, faArrowRight, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faExclamation, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import "../css/footer.css";
 const Footer = () => {
   return (
@@ -73,7 +73,7 @@ const Footer = () => {
     <footer class="footer">
       <div class="footer__addr">
         <address>
-          <form action="#">
+          <form action="#" class="subscribe">
             <div class="form-group">
               <div class="inputContainer">
                 <input
@@ -91,10 +91,11 @@ const Footer = () => {
                   className="userIcon"
                   style={{ color: "#ffffff" }}
                 />
-              </div>
-              <button>
-                <span><FontAwesomeIcon icon={faArrowRight} shake /></span>
+                <button>
+                <FontAwesomeIcon icon={faArrowRight} shake size="2xl" />
               </button>
+              </div>
+              
             </div>
           </form>
         </address>
