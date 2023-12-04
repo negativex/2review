@@ -73,7 +73,7 @@ const Footer = () => {
     <footer class="footer">
       <div class="footer__addr">
         <address>
-          <form action="#">
+          <form action="#" class="subscribe">
             <div class="form-group">
               <div class="inputContainer">
                 <input
@@ -83,15 +83,19 @@ const Footer = () => {
                   type="email"
                 />
                 <label class="usernameLabel" for="inputField">
-                  <FontAwesomeIcon
-                    icon={faExclamation}
-                    shake
-                    style={{ color: "#ffffff" }}
-                  />
                   Đăng ký để không thành tối cổ
                 </label>
-                
+                <FontAwesomeIcon
+                  icon={faExclamation}
+                  shake
+                  className="userIcon"
+                  style={{ color: "#ffffff" }}
+                />
+                <button>
+                <FontAwesomeIcon icon={faArrowRight} shake size="2xl" />
+              </button>
               </div>
+              
             </div>
           </form>
         </address>
