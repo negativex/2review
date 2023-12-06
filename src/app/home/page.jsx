@@ -23,7 +23,7 @@ const landingPage = () => {
       </div>
       <div className="mt-5 ml-20">
         <div className="flex flex-row items-center">
-          <p className="flex-1 text-xl font-semibold 2xl:text-3xl">
+          <p className="flex-1 xl:text-xl font-semibold lg:text-sm 2xl:text-3xl">
             Mới Nhất Từ 2Review!
           </p>
           {/* <div className="flex flex-row mr-20 w-27">
@@ -70,7 +70,7 @@ const landingPage = () => {
           </div>
         </div> */}
         <div className="flex flex-row items-center mt-5">
-          <p className="flex-1 text-xl font-semibold 2xl:text-3xl">
+          <p className="flex-1 xl:text-xl font-semibold lg:text-sm 2xl:text-3xl">
             Đang Hot Mùa Này!
           </p>
           {/* <div className="flex flex-row mr-20 w-27">
@@ -99,7 +99,7 @@ const landingPage = () => {
             <ReviewCarousel slides={SLIDES} options={OPTIONS} />
           </section>
         </div>
-        <p className="flex-1 text-xl font-semibold mt-3 2xl:text-3xl">
+        <p className="flex-1 xl:text-xl font-semibold mt-3 lg:text-sm 2xl:text-3xl">
           2Review Phán!!
         </p>
         <div className="relative flex py-3 mr-20 items-center">
@@ -121,7 +121,7 @@ const landingPage = () => {
         />
       </div>
       <div className="mt5 ml-20">
-        <p className="flex-1 text-xl font-semibold mt-3 2xl:mt-10 2xl:text-3xl">
+        <p className="flex-1 xl:text-xl font-semibold mt-3 lg:text-sm 2xl:mt-10 2xl:text-3xl">
           Trailer Phim Mới!!
         </p>
         <div className="relative flex py-3 mr-20 items-center">
