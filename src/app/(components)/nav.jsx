@@ -3,6 +3,7 @@ import "../css/header.css";
 import "../css/bootstrap.min.css";
 const Nav = () => {
   return (
+
     <header>
       {/* <!-- Google Web Fonts --> */}
 
@@ -114,6 +115,7 @@ const Nav = () => {
               </a>
             </div>
           </nav>
+
         </div>
       </div>
       {/* <!-- Navbar End -->

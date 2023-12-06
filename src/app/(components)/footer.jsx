@@ -5,6 +5,7 @@ import { faExclamation, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import "../css/footer.css";
 const Footer = () => {
   return (
+
     <footer class="footer">
       <div class="footer__addr">
         <address>

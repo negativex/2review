@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import ReviewCarousel from "../../(components)/carousel2";
+import CarouselReview from "./carouselrv";
 const OPTIONS = { slidesToScroll: "auto", containScroll: "trimSnaps" };
 const SLIDE_COUNT = 12;
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
@@ -24,55 +24,58 @@ const reviewPage = () => {
               alt="banner thong bao"
             />
           </div>
-          <div className="flex-auto w-1/3 pl-16">
-            <div className="flex h-1/5 flex-col py-8">
-              <p className="text-center uppercase text-4xl font-semibold">
-                Bến Phà Xác Sống
+          <div className="flex-auto w-1/3 md:pl-4 2xl:pl-16">
+            <div className="flex overflow-hidden h-1/3 flex-col py-8 overflow-y-auto">
+              <p className="text-center uppercase text-3xl whitespace-normal font-semibold 2xl:text-5xl">
+                Bến Phà Xác Sống da dsajsakdgkjasdhjk shakjd hsakjh djksahd kjsa
+                hdas
               </p>
               <a
                 href="#"
-                className="text-2xl block mt-5 leading-tight font-medium text-black hover:underline"
+                className="mt-6 text-xl block leading-tight font-bold text-black hover:underline 2xl:text-3xl"
               >
                 Tag:
               </a>
             </div>
-            <div className="flex h-2/5 flex-row items-center">
+            <div className="flex-grow border-t border-gray-300"></div>
+            <div className="flex h-1/3 flex-row items-center">
               <div className="flex w-2/3 flex-col">
-                <p className="mt-2 font-extralight text-2xl 2xl:text-3xl">
+                <p className="mt-2 font-extralight text-xl 2xl:text-3xl">
                   2REVIEWSCORE
                 </p>
                 <p className="mt-2 font-bold text-2xl 2xl:text-4xl">
                   Không thể cứu vớt
                 </p>
-                <p className="mt-2 font-normal text-2xl hover:underline 2xl:text-3xl">
+                <p className="mt-2 font-normal text-xl hover:underline 2xl:text-3xl">
                   Dựa trên 12 đánh giá
                 </p>
               </div>
               <div className="flex w-1/3 ml-10 justify-center items-center">
-                <div class=" bg-redReview w-32 h-32 shadow-lg rounded-2xl">
-                  <span class="w-full h-full flex justify-center items-center text-4xl 2xl:text-5xl font-black">
+                <div className=" bg-redReview w-28 h-28 shadow-lg rounded-2xl 2xl:w-36 2xl:h-36">
+                  <span className="w-full h-full flex justify-center items-center text-4xl 2xl:text-5xl font-black">
                     15
                   </span>
                 </div>
               </div>
             </div>
-            <div className="flex h-2/5 flex-row  items-center">
+            <div className="flex-grow border-t border-gray-300"></div>
+            <div className="flex h-1/3 flex-row  items-center">
               <div className="flex flex-col w-2/3">
-                <p className="mt-2 font-extralight text-2xl 2xl:text-3xl">
+                <p className="mt-2 font-extralight text-xl 2xl:text-3xl">
                   USERSCORE
                 </p>
                 <p className="mt-2 font-bold text-2xl 2xl:text-4xl">
                   Có khen có chê
                 </p>
-                <p className="mt-2 font-normal text-2xl hover:underline 2xl:text-3xl">
+                <p className="mt-2 font-normal text-xl hover:underline 2xl:text-3xl">
                   Dựa trên 5 đánh giá
                 </p>
               </div>
               <div className="flex w-1/3 ml-10 justify-center items-center">
                 {/* <p className="mt-5 font-extralight text-2xl">hello</p> */}
-                {/* <div class="bg-black bg-opacity-25 flex justify-center items-center"> */}
-                <div class=" bg-yellowReview w-32 h-32 shadow-lg rounded-2xl">
-                  <span class="w-full h-full flex justify-center items-center text-4xl 2xl:text-5xl font-black">
+                {/* <div className="bg-black bg-opacity-25 flex justify-center items-center"> */}
+                <div className=" bg-yellowReview w-28 h-28 shadow-lg rounded-2xl 2xl:w-36 2xl:h-36">
+                  <span className="w-full h-full flex justify-center items-center text-4xl 2xl:text-5xl font-black">
                     50
                   </span>
                 </div>
@@ -81,7 +84,7 @@ const reviewPage = () => {
           </div>
         </div>
         <div className="flex flex-row items-center mt-5">
-          <p className="flex-1 text-base 2xl:text-2xl font-semibold">
+          <p className="flex-1 text-xl 2xl:text-2xl font-semibold">
             Đánh giá từ 2Review:
           </p>
         </div>
@@ -89,7 +92,7 @@ const reviewPage = () => {
           <div className="flex-grow border-t border-gray-400"></div>
         </div>
         <div className="flex flex-row items-center mt-5">
-          <p className="flex-1 text-base 2xl:text-2xl font-semibold">
+          <p className="flex-1 text-xl 2xl:text-2xl font-semibold">
             Đánh giá từ người dùng:
           </p>
         </div>
@@ -97,14 +100,14 @@ const reviewPage = () => {
           <div className="flex-grow border-t border-gray-400"></div>
         </div>
         <div className="flex flex-row items-center mt-5">
-          <p className="flex-1 text-base 2xl:text-2xl font-semibold">
+          <p className="flex-1 text-xl 2xl:text-2xl font-semibold">
             Thông tin chi tiết:
           </p>
         </div>
         <div className="relative flex py-3 items-center">
           <div className="flex-grow border-t border-gray-400"></div>
         </div>
-        <div className="text-2xl">
+        <div className="text-xl 2xl:text-2xl">
           <p>Đạo diễn: Nguyễn Thành Nam</p>
           <p>
             Diễn viên: Huỳnh Đông, Ốc Thanh Vân, Trần Phong, La Thành, Xuân
@@ -120,7 +123,7 @@ const reviewPage = () => {
           </p>
         </div>
         <div className="flex flex-row items-center mt-5">
-          <p className="flex-1 text-base 2xl:text-2xl font-semibold">
+          <p className="flex-1 text-xl 2xl:text-2xl font-semibold">
             Nội dung liên quan:
           </p>
         </div>
@@ -130,7 +133,7 @@ const reviewPage = () => {
         <div>
           <div className="relative flex mr-20 2xl:mb-20">
             <section className="landing__carousel">
-              <ReviewCarousel slides={SLIDES} options={OPTIONS} />
+              <CarouselReview slides={SLIDES} options={OPTIONS} />
             </section>
           </div>
         </div>
