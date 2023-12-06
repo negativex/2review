@@ -51,7 +51,7 @@ const reviewPage = () => {
                 </p>
               </div>
               <div className="flex w-1/3 ml-10 justify-center items-center">
-                <div className=" bg-redReview w-28 h-28 shadow-lg rounded-2xl 2xl:w-36 2xl:h-36">
+                <div className=" bg-redReview w-28 h-28 shadow-lg rounded-2xl 2xl:w-36 2xl:h-36 drop-shadow-rv">
                   <span className="w-full h-full flex justify-center items-center text-4xl 2xl:text-5xl font-black">
                     15
                   </span>
@@ -74,7 +74,7 @@ const reviewPage = () => {
               <div className="flex w-1/3 ml-10 justify-center items-center">
                 {/* <p className="mt-5 font-extralight text-2xl">hello</p> */}
                 {/* <div className="bg-black bg-opacity-25 flex justify-center items-center"> */}
-                <div className=" bg-yellowReview w-28 h-28 shadow-lg rounded-2xl 2xl:w-36 2xl:h-36">
+                <div className=" bg-yellowReview w-28 h-28 shadow-lg rounded-2xl 2xl:w-36 2xl:h-36 drop-shadow-rv">
                   <span className="w-full h-full flex justify-center items-center text-4xl 2xl:text-5xl font-black">
                     50
                   </span>
