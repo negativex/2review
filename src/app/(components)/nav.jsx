@@ -26,7 +26,7 @@ const Nav = () => {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [modalDefaultOpen, setModalDefaultOpen] = React.useState(false);
   const [modalShow, setModalShow] = React.useState(false);
-  
+
   return (
     <header>
       <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -155,7 +155,8 @@ const Nav = () => {
                       type="button"
                     >
                       Close
-                    </Button>
+                    </Button> 
+                 
                     <MDBContainer fluid className="my-5">
                       <MDBRow className="g-0 align-items-center">
                         <MDBCol col="6">
@@ -166,8 +167,6 @@ const Nav = () => {
                               backdropFilter: "blur(20px)",
                             }}
                           >
-                            
-
                             <MDBCardBody className="p-5 shadow-5 text-center">
                               <h1 className="fw-bold mb-5">Đăng Ký Ngay</h1>
                               <MDBRow>
@@ -175,7 +174,6 @@ const Nav = () => {
                                   <MDBInput
                                     wrapperClass="mb-4"
                                     id="form1"
-                                    type="text"
                                   />
                                 </MDBCol>
 
@@ -210,7 +208,7 @@ const Nav = () => {
                                 </p>
                               </div>
 
-                              <button className="button type1"></button>
+                              <button className="button type1 "></button>
 
                               <div className="text-center">
                                 <p style={{ color: "black" }}>
