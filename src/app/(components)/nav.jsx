@@ -145,7 +145,7 @@ const Nav = () => {
                   toggle={() => setModalOpen(!modalOpen)}
                   isOpen={modalOpen}
                   show={modalShow}
-                  className="modal-backdrop"
+                  // className="modal-backdrop"
                 >
                   <div className=" modal-body ">
                     <Button
