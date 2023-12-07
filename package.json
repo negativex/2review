@@ -23,10 +23,14 @@
     "font-awesome": "^4.7.0",
     "mdb-react-ui-kit": "^7.0.0",
     "next": "^14.0.3",
+    "postcss-loader": "^7.3.3",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",
     "react-range": "^1.8.14",
+
     "swr": "^2.2.4"
+
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",

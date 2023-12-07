@@ -6,8 +6,10 @@ import { faExclamation, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import "../css/footer.css";
 const Footer = () => {
   return (
+
     <footer className="footer">
       <div className="footer__addr">
+
         <address>
           <form action="#" class="subscribe">
             <div className="form-group">
@@ -34,17 +36,12 @@ const Footer = () => {
             </div>
           </form>
         </address>
+
         <div className="footer__logo">
-          <Link href="/">
-            <Image
-              href="/"
-              src="/logo2.svg"
-              width={250}
-              height={250}
-              alt="Logo"
-            />
-          </Link>
-        </div>
+
+      
+
+        
       </div>
 
       <ul className="footer__nav">

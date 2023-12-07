@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandPointUp } from "@fortawesome/free-solid-svg-icons";
 const Nav = () => {
   return (
+
     <header>
       <meta content="width=device-width, initial-scale=1.0" name="viewport" />
       <meta content="" name="keywords" />
@@ -119,6 +120,7 @@ const Nav = () => {
               </a>
             </div>
           </nav>
+
         </div>
       </div>
       {/* <!-- Navbar End --> */}

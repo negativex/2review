@@ -124,7 +124,9 @@ body {
   }
 
   .footer__addr {
+
     flex: 1 0px;
+
   }
 
   .footer__nav {
@@ -198,6 +200,7 @@ body {
     transition-duration: 0.3s;
   }
 
+
   .footer .subscribe .form-group button {
     position: absolute;
     border: none;
@@ -211,3 +214,4 @@ body {
     transition-duration: 0.3s;
   }
 }
+

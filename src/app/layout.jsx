@@ -1,6 +1,6 @@
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import Nav from "./(components)/nav";
+import Nav from "./(components)/Nav";
 import Footer from "./(components)/footer";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -14,7 +14,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={mont.className}>
+      <body
+        className={mont.className}
+      
+      >
         <div className="flex flex-col h-screen max-h-screen">
           <div className="bg-nav">
             <Nav></Nav>
