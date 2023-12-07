@@ -191,11 +191,7 @@ const Nav = () => {
                                 id="form3"
                                 type="email"
                               />
-                              <MDBInput
-                                wrapperClass="mb-4"
-                                id="form4"
-                                type="password"
-                              />
+                              
 
                               <div className="d-flex">
                                 <MDBCheckbox
