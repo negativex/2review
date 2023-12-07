@@ -26,6 +26,7 @@
   --bs-danger: #dc3545;
   --bs-light: #fffcf8;
   --bs-dark: #050709;
+  
   --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -538,8 +539,8 @@ progress {
 .container-md,
 .container-sm {
   width: 100%;
-  padding-right: var(--bs-gutter-x, 0.75rem);
-  padding-left: var(--bs-gutter-x, 0.75rem);
+  padding-right: var(--bs-gutter-x, 0.25rem);
+  padding-left: var(--bs-gutter-x, 0.25rem);
   margin-right: auto;
   margin-left: auto;
 }
@@ -2602,11 +2603,11 @@ fieldset:disabled .btn {
 }
 .btn-primary {
   color: #000;
-  background-color: #d4a762;
-  border-color: #d4a762;
+  background-color: #000;
+  border-color: #ffff;
 }
 .btn-primary:hover {
-  color: #000;
+  
   background-color: #dab47a;
   border-color: #d8b072;
 }
@@ -6403,8 +6404,8 @@ fieldset:disabled .btn {
   margin-bottom: 1.5rem !important;
 }
 .my-5 {
-  margin-top: 3rem !important;
-  margin-bottom: 3rem !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.25rem !important;
 }
 .my-auto {
   margin-top: auto !important;

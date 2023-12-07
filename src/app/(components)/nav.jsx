@@ -1,10 +1,32 @@
+"use client";
 import Link from "next/link";
+import React from "react";
 import Image from "next/image";
 import "../css/nav.css";
 import "../css/bootstrap.min.css";
+import "../css/login.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandPointUp } from "@fortawesome/free-solid-svg-icons";
+
+import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
+import "../css/button.css";
+import {
+  MDBBtn,
+  MDBContainer,
+  MDBCard,
+  MDBCardBody,
+  MDBInput,
+  MDBIcon,
+  MDBRow,
+  MDBCol,
+  MDBCheckbox,
+} from "mdb-react-ui-kit";
+
 const Nav = () => {
+  const [modalOpen, setModalOpen] = React.useState(false);
+  const [modalDefaultOpen, setModalDefaultOpen] = React.useState(false);
+  const [modalShow, setModalShow] = React.useState(false);
+  
   return (
     <header>
       <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -62,7 +84,7 @@ const Nav = () => {
               />
             </a>
 
-            <div className="navbar-collapse" id="navbarCollapse">
+            <div className="navbar-collapse">
               <div className="navbar-nav mx-auto">
                 <a href="/login" className="nav-item nav-link active">
                   Phim Mới
@@ -85,7 +107,7 @@ const Nav = () => {
                     <FontAwesomeIcon
                       icon={faHandPointUp}
                       rotation={180}
-                      style={{marginLeft:5}}
+                      style={{ marginLeft: 5 }}
                     />
                   </a>
                   <div class="dropdown-menu bg-light">
@@ -110,20 +132,116 @@ const Nav = () => {
                   Contact
                 </a>
               </div>
+              <a class="btn py-2 px-4 d-none d-xl-inline-block rounded-pill">
+                <Button
+                  color="primary"
+                  type="button"
+                  onClick={() => setModalOpen(!modalOpen)}
+                >
+                  Login/Register
+                </Button>
+                <Modal
+                  size="xl"
+                  toggle={() => setModalOpen(!modalOpen)}
+                  isOpen={modalOpen}
+                  show={modalShow}
+                  className="modal-backdrop"
+                >
+                  <div className=" modal-body ">
+                    <Button
+                      className=" ml-auto"
+                      color="link"
+                      onClick={() => setModalOpen(false)}
+                      type="button"
+                    >
+                      Close
+                    </Button>
+                    <MDBContainer fluid className="my-5">
+                      <MDBRow className="g-0 align-items-center">
+                        <MDBCol col="6">
+                          <MDBCard
+                            className="my-5 cascading-right"
+                            style={{
+                              background: "hsla(0, 0%, 100%, 0.55)",
+                              backdropFilter: "blur(20px)",
+                            }}
+                          >
+                            
 
-              <a
-                href="/home"
-                class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill"
-              >
-                Login/Register
+                            <MDBCardBody className="p-5 shadow-5 text-center">
+                              <h1 className="fw-bold mb-5">Đăng Ký Ngay</h1>
+                              <MDBRow>
+                                <MDBCol col="6">
+                                  <MDBInput
+                                    wrapperClass="mb-4"
+                                    id="form1"
+                                    type="text"
+                                  />
+                                </MDBCol>
+
+                                <MDBCol col="6">
+                                  <MDBInput
+                                    wrapperClass="mb-4"
+                                    id="form2"
+                                    type="text"
+                                  />
+                                </MDBCol>
+                              </MDBRow>
+
+                              <MDBInput
+                                wrapperClass="mb-4"
+                                id="form3"
+                                type="email"
+                              />
+                              <MDBInput
+                                wrapperClass="mb-4"
+                                id="form4"
+                                type="password"
+                              />
+
+                              <div className="d-flex">
+                                <MDBCheckbox
+                                  name="flexCheck"
+                                  value=""
+                                  id="flexCheckDefault"
+                                />
+                                <p style={{ color: "black", paddingLeft: 5 }}>
+                                  Đồng ý với điều khoản
+                                </p>
+                              </div>
+
+                              <button className="button type1"></button>
+
+                              <div className="text-center">
+                                <p style={{ color: "black" }}>
+                                  Bạn đã có tài khoản?
+                                </p>
+                              </div>
+                            </MDBCardBody>
+                          </MDBCard>
+                        </MDBCol>
+
+                        <MDBCol col="6">
+                          <img
+                            href="/"
+                            src="/movie-posters.png"
+                            height={600}
+                            width={1000}
+                            class="w-100 rounded-4 shadow-4"
+                            alt=""
+                            fluid
+                          />
+                        </MDBCol>
+                      </MDBRow>
+                    </MDBContainer>
+                  </div>
+                </Modal>
               </a>
             </div>
           </nav>
         </div>
       </div>
-      {/* <!-- Navbar End --> */}
 
-      {/* <!-- JavaScript Libraries --> */}
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 

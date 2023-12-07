@@ -74,3 +74,6 @@ body {
   }
 }
 /* Kết thúc phần của carousel */
+.input-group:focus-within label {
+  color: red !important;
+}
