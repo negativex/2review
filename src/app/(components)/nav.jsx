@@ -28,14 +28,43 @@ const Nav = () => {
   const [modalShow, setModalShow] = React.useState(false);
   
   return (
-    <header className="flex-col">
-      <div className="flex justify-center py-1 bg-page">
-        <p className="xl:text-sm lg:text-xs 2xl:text-xl font-semibold">
-          Tham gia
-        </p>
+    <header>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+      <meta content="" name="keywords" />
+      <meta content="" name="description" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap"
+        rel="stylesheet"
+      />
+
+      {/* <!-- Icon Font Stylesheet --> */}
+      <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      />
+      <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+        rel="stylesheet"
+      />
+
+      <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap"
+        rel="stylesheet"
+      />
+      <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      />
+      <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+        rel="stylesheet"
+      />
+
+      {/* <div className="flex justify-center bg-page" style={{color:"black"}}>
+        <p className="text-xs 4xl:text-xl font-semibold">Tham gia</p>
         <Link
           href="/"
-          className="xl:text-sm lg:text-xs 2xl:text-xl cursor-pointer font-semibold text-yellow"
+          className="text-xs font-semibold"
         >
           &nbsp;hội viên&nbsp;
         </Link>
