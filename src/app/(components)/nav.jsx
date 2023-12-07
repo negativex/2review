@@ -1,6 +1,32 @@
+"use client";
 import Link from "next/link";
+import React from "react";
 import Image from "next/image";
+import "../css/nav.css";
+import "../css/bootstrap.min.css";
+import "../css/login.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHandPointUp } from "@fortawesome/free-solid-svg-icons";
+
+import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
+import "../css/button.css";
+import {
+  MDBBtn,
+  MDBContainer,
+  MDBCard,
+  MDBCardBody,
+  MDBInput,
+  MDBIcon,
+  MDBRow,
+  MDBCol,
+  MDBCheckbox,
+} from "mdb-react-ui-kit";
+
 const Nav = () => {
+  const [modalOpen, setModalOpen] = React.useState(false);
+  const [modalDefaultOpen, setModalDefaultOpen] = React.useState(false);
+  const [modalShow, setModalShow] = React.useState(false);
+  
   return (
     <header className="flex-col">
       <div className="flex justify-center py-1 bg-page">
@@ -13,96 +39,185 @@ const Nav = () => {
         >
           &nbsp;hội viên&nbsp;
         </Link>
-        <p className="xl:text-sm lg:text-xs 2xl:text-xl font-semibold">
-          ngay hôm nay!!!
-        </p>
-      </div>
-      <div className="flex flex-row py-3 2xl:py-4 items-center bg-nav">
-        <div className="flex-none xl:w-20 ml-20 cursor-pointer just lg:w-20 2xl:w-40">
-          <Link href="/" className="">
-            <Image
-              href="/"
-              src="/logo2.svg"
-              width={400}
-              height={400}
-              alt="Logo"
-            />
-            <p className=" text-black-text xl:text-xs xl:visible lg:invisible lg:text-hidden 2xl:text-xl">
-              to review
-            </p>
-          </Link>
-        </div>
-        <nav className="grow">
-          <ul className="flex justify-center gap-[5vw] ">
-            <li>
-              <Link
+        <p className="text-xs 2xl:text-xl font-semibold">ngay hôm nay!!!</p>
+      </div> */}
+
+      <div class="container-fluid nav-bar">
+        <div class="container">
+          <nav class="navbar navbar-light navbar-expand-lg py-4">
+            <a href="/" class="navbar-brand">
+              <Image
                 href="/"
-                className="xl:text-base	text-black-text lg:text-xs 2xl:text-3xl"
-              >
-                Phim Mới
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/review/1"
-                className="xl:text-base text-black-text lg:text-xs 2xl:text-3xl"
-              >
-                Top 100
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/home"
-                className="xl:text-base	text-black-text lg:text-xs 2xl:text-3xl"
-              >
-                Games
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/home"
-                className="xl:text-base	text-black-text lg:text-xs 2xl:text-3xl"
-              >
-                Animes
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/home"
-                className="xl:text-base	text-black-text lg:text-xs 2xl:text-3xl"
-              >
-                Hot Trend
-              </Link>
-            </li>
-          </ul>
-        </nav>
-        <div className="flex flex-row xl:w-24 flex-shrink-0 mr-20 cursor-pointer justify-center gap-[1vw] lg:w-16 2xl:w-36">
-          <Link href="/" className="">
-            <Image
-              src="/icon_banner/search-outline.svg"
-              width={40}
-              height={40}
-              alt="Logo"
-            ></Image>
-          </Link>
-          <Link href="/review/2" className="">
-            <Image
-              src="/icon_banner/person-outline.svg"
-              width={40}
-              height={40}
-              alt="Logo"
-            ></Image>
-          </Link>
-          <Link href="/review/3" className="">
-            <Image
-              src="/icon_banner/heart-outline.svg"
-              width={40}
-              height={40}
-              alt="Logo"
-            ></Image>
-          </Link>
+                src="/logo2.svg"
+                width={150}
+                height={150}
+                alt="Logo"
+              />
+            </a>
+
+            <div className="navbar-collapse">
+              <div className="navbar-nav mx-auto">
+                <a href="/login" className="nav-item nav-link active">
+                  Phim Mới
+                </a>
+                <a href="/" className="nav-item nav-link">
+                  Top 100
+                </a>
+                <a href="service.html" class="nav-item nav-link">
+                  Games
+                </a>
+                <a href="event.html" class="nav-item nav-link">
+                  Animes
+                </a>
+                <a href="menu.html" class="nav-item nav-link">
+                  Hot Trend
+                </a>
+                <div class="nav-item dropdown">
+                  <a href="#" class="nav-link " data-bs-toggle="dropdown">
+                    Pages
+                    <FontAwesomeIcon
+                      icon={faHandPointUp}
+                      rotation={180}
+                      style={{ marginLeft: 5 }}
+                    />
+                  </a>
+                  <div class="dropdown-menu bg-light">
+                    <a href="book.html" class="dropdown-item">
+                      Booking
+                    </a>
+                    <a href="blog.html" class="dropdown-item">
+                      Our Blog
+                    </a>
+                    <a href="team.html" class="dropdown-item">
+                      Our Team
+                    </a>
+                    <a href="testimonial.html" class="dropdown-item">
+                      Testimonial
+                    </a>
+                    <a href="404.html" class="dropdown-item">
+                      404 Page
+                    </a>
+                  </div>
+                </div>
+                <a href="contact.html" class="nav-item nav-link">
+                  Contact
+                </a>
+              </div>
+              <a class="btn py-2 px-4 d-none d-xl-inline-block rounded-pill">
+                <Button
+                  color="primary"
+                  type="button"
+                  onClick={() => setModalOpen(!modalOpen)}
+                >
+                  Login/Register
+                </Button>
+                <Modal
+                  size="xl"
+                  toggle={() => setModalOpen(!modalOpen)}
+                  isOpen={modalOpen}
+                  show={modalShow}
+                  // className="modal-backdrop"
+                >
+                  <div className=" modal-body ">
+                    <Button
+                      className=" ml-auto"
+                      color="link"
+                      onClick={() => setModalOpen(false)}
+                      type="button"
+                    >
+                      Close
+                    </Button>
+                    <MDBContainer fluid className="my-5">
+                      <MDBRow className="g-0 align-items-center">
+                        <MDBCol col="6">
+                          <MDBCard
+                            className="my-5 cascading-right"
+                            style={{
+                              background: "hsla(0, 0%, 100%, 0.55)",
+                              backdropFilter: "blur(20px)",
+                            }}
+                          >
+                            
+
+                            <MDBCardBody className="p-5 shadow-5 text-center">
+                              <h1 className="fw-bold mb-5">Đăng Ký Ngay</h1>
+                              <MDBRow>
+                                <MDBCol col="6">
+                                  <MDBInput
+                                    wrapperClass="mb-4"
+                                    id="form1"
+                                    type="text"
+                                  />
+                                </MDBCol>
+
+                                <MDBCol col="6">
+                                  <MDBInput
+                                    wrapperClass="mb-4"
+                                    id="form2"
+                                    type="text"
+                                  />
+                                </MDBCol>
+                              </MDBRow>
+
+                              <MDBInput
+                                wrapperClass="mb-4"
+                                id="form3"
+                                type="email"
+                              />
+                              <MDBInput
+                                wrapperClass="mb-4"
+                                id="form4"
+                                type="password"
+                              />
+
+                              <div className="d-flex">
+                                <MDBCheckbox
+                                  name="flexCheck"
+                                  value=""
+                                  id="flexCheckDefault"
+                                />
+                                <p style={{ color: "black", paddingLeft: 5 }}>
+                                  Đồng ý với điều khoản
+                                </p>
+                              </div>
+
+                              <button className="button type1"></button>
+
+                              <div className="text-center">
+                                <p style={{ color: "black" }}>
+                                  Bạn đã có tài khoản?
+                                </p>
+                              </div>
+                            </MDBCardBody>
+                          </MDBCard>
+                        </MDBCol>
+
+                        <MDBCol col="6">
+                          <img
+                            href="/"
+                            src="/movie-posters.png"
+                            height={600}
+                            width={1000}
+                            class="w-100 rounded-4 shadow-4"
+                            alt=""
+                            fluid
+                          />
+                        </MDBCol>
+                      </MDBRow>
+                    </MDBContainer>
+                  </div>
+                </Modal>
+              </a>
+            </div>
+          </nav>
         </div>
       </div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+      {/* <!-- Template Javascript --> */}
+      <script src="../js/main.js"></script>
     </header>
   );
 };

@@ -9,11 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
+    "@nextui-org/button": "^2.0.26",
+    "@nextui-org/react": "^2.2.9",
+    "@nextui-org/system": "^2.0.15",
+    "@nextui-org/theme": "^2.1.17",
     "babel-plugin-macros": "^3.1.0",
     "bootstrap": "^5.3.2",
     "classnames": "^2.3.2",
@@ -21,19 +28,23 @@
     "embla-carousel-class-names": "^8.0.0-rc14",
     "embla-carousel-react": "^8.0.0-rc14",
     "font-awesome": "^4.7.0",
+    "framer-motion": "^10.16.14",
+    "mdb-react-ui-kit": "^7.0.0",
     "next": "^14.0.3",
     "postcss-loader": "^7.3.3",
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",
     "react-range": "^1.8.14",
-    "sass": "^1.69.5"
+    "reactstrap": "^9.2.1",
+    "swr": "^2.2.4"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",
     "eslint": "^8",
     "eslint-config-next": "14.0.1",
     "postcss": "^8.4.32",
-    "tailwindcss": "^3.3.5"
+    "sass": "^1.69.5",
+    "tailwindcss": "^3.3.6"
   }
 }

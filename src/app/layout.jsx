@@ -8,7 +8,7 @@ config.autoAddCss = false;
 const mont = Montserrat({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "2Review: to watch to review",
+  title: "2Review: To Watch To Review",
 };
 
 export default function RootLayout({ children }) {
