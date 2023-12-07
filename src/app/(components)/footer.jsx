@@ -2,23 +2,25 @@ import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamation, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+
 import "../css/footer.css";
 const Footer = () => {
   return (
 
-    <footer class="footer">
-      <div class="footer__addr">
+    <footer className="footer">
+      <div className="footer__addr">
+
         <address>
           <form action="#" class="subscribe">
-            <div class="form-group">
-              <div class="inputContainer">
+            <div className="form-group">
+              <div className="inputContainer">
                 <input
                   required="required"
                   id="inputField"
                   placeholder="Email"
                   type="email"
                 />
-                <label class="usernameLabel" for="inputField">
+                <label className="usernameLabel" for="inputField">
                   Đăng ký để không thành tối cổ
                 </label>
                 <FontAwesomeIcon
@@ -28,32 +30,25 @@ const Footer = () => {
                   style={{ color: "#ffffff" }}
                 />
                 <button>
-                <FontAwesomeIcon icon={faArrowRight} shake size="2xl" />
-              </button>
+                  <FontAwesomeIcon icon={faArrowRight} shake size="2xl" />
+                </button>
               </div>
-              
             </div>
           </form>
         </address>
+
+        <div className="footer__logo">
+
       
-          <Link href="/">
-            <Image
-              href="/"
-              src="/logo2.svg"
-              width={250}
-              height={250}
-              alt="Logo"
-              className="footer__logo"
-            />
-          </Link>
+
         
       </div>
 
-      <ul class="footer__nav">
-        <li class="nav__item">
-          <h2 class="nav__title">Về 2Review</h2>
+      <ul className="footer__nav">
+        <li className="nav__item">
+          <h2 className="nav__title">Về 2Review</h2>
 
-          <ul class="nav__ul">
+          <ul className="nav__ul">
             <li>
               <a href="#">Mục tiêu</a>
             </li>
@@ -76,10 +71,10 @@ const Footer = () => {
           </ul>
         </li>
 
-        <li class="nav__item nav__item--extra">
-          <h2 class="nav__title">Trợ giúp</h2>
+        <li className="nav__item">
+          <h2 className="nav__title">Trợ giúp</h2>
 
-          <ul class="nav__ul nav__ul--extra">
+          <ul className="nav__ul ">
             <li>
               <a href="#">Cách đánh giá</a>
             </li>
@@ -98,10 +93,10 @@ const Footer = () => {
           </ul>
         </li>
 
-        <li class="nav__item">
-          <h2 class="nav__title">Tham gia</h2>
+        <li className="nav__item">
+          <h2 className="nav__title">Tham gia</h2>
 
-          <ul class="nav__ul">
+          <ul className="nav__ul">
             <li>
               <a href="#">2Review Social Club</a>
             </li>
@@ -117,7 +112,7 @@ const Footer = () => {
         </li>
       </ul>
 
-      <div class="legal">
+      <div className="legal">
         <p>&copy; 2023 2Review. All rights reserved.</p>
       </div>
     </footer>
