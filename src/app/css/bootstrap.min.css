@@ -5025,17 +5025,18 @@ fieldset:disabled .btn {
   flex-shrink: 0;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1rem;
-  border-bottom: 1px solid #dee2e6;
+  /* padding: 1rem 1rem; */
+  /* border-bottom: 1px solid #dee2e6;
   border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
+  border-top-right-radius: 7px; */
 }
 .modal-header .btn-close {
   padding: 0.5rem 0.5rem;
   margin: -0.5rem -0.5rem -0.5rem auto;
 }
 .modal-title {
-  margin-bottom: 0;
+  /* margin-bottom: 0; */
+  
   line-height: 1.5;
 }
 .modal-body {
@@ -6560,7 +6561,7 @@ fieldset:disabled .btn {
   margin-top: -1rem !important;
 }
 .mt-n4 {
-  margin-top: -1.5rem !important;
+  margin-top: 1.0rem !important;
 }
 .mt-n5 {
   margin-top: -3rem !important;
