@@ -6,7 +6,10 @@ import "../css/nav.css";
 import "../css/bootstrap.min.css";
 import "../css/login.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHandPointUp, faExclamation } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHandPointUp,
+  faExclamation,
+} from "@fortawesome/free-solid-svg-icons";
 import "../css/input.css";
 import "../css/buttonLogin.css";
 import { Modal } from "reactstrap";
@@ -25,9 +28,11 @@ import {
 } from "mdb-react-ui-kit";
 
 const Nav = () => {
-  const [modalOpen, setModalOpen] = React.useState(false);
-  const [modalDefaultOpen, setModalDefaultOpen] = React.useState(false);
   const [modalShow, setModalShow] = React.useState(false);
+  const [modalOpen, setModalOpen] = React.useState(false);
+
+  const [modalShowChild, setModalShowChild] = React.useState(false);
+  const [modalOpenChild, setModalOpenChild] = React.useState(false);
 
   return (
     <header>
@@ -142,10 +147,11 @@ const Nav = () => {
                   size="xl"
                   toggle={() => setModalOpen(!modalOpen)}
                   isOpen={modalOpen}
+                  data-toggle="modal"
                   show={modalShow}
                   // className="modal-backdrop"
                 >
-                  <div className=" modal-body container">
+                  <div className=" modal-body container" id="exampleModalLabel">
                     <div fluid className="my-5 row">
                       <div className="g-1 align-items-center row my-0 col">
                         <div className="col">
@@ -158,11 +164,10 @@ const Nav = () => {
                           >
                             <div className=" card-body p-5 shadow-5 text-center">
                               <h1 className="fw-bold mb-5 fs-2">
-                                Đăng Ký Ngay {" "}
+                                Đăng Ký Ngay{" "}
                                 <FontAwesomeIcon
                                   icon={faExclamation}
                                   shake
-                                  
                                   style={{ color: "#000000" }}
                                 />
                               </h1>
@@ -213,9 +218,98 @@ const Nav = () => {
                               <button className="button type1 "></button>
 
                               <div className="text-center">
-                                <p style={{ color: "black" }}>
+                                <button
+                                  style={{ color: "black" }}
+                                  className="mt-n4 "
+                                  onClick={() => {
+                                    setModalOpenChild(!modalOpenChild);
+                                    setModalOpen(false);
+                                  }}
+                                >
                                   Bạn đã có tài khoản?
-                                </p>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="col" col="6">
+                          <img
+                            href="/"
+                            src="/movie-posters.png"
+                            height={600}
+                            width={600}
+                            class="w-100 rounded-4 shadow-4"
+                            alt=""
+                            fluid
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Modal>
+              </a>
+
+              <a class="btn py-2 px-4 d-none d-xl-inline-block rounded-pill">
+                <Modal
+                  size="xl"
+                  toggle={() => setModalOpenChild(!modalOpenChild)}
+                  isOpen={modalOpenChild}
+                  show={modalShowChild}
+                >
+                  <div
+                    className=" modal-body container"
+                    id="exampleModalLabel1"
+                  >
+                    <div fluid className="my-5 row">
+                      <div className="g-1 align-items-center row my-0 col">
+                        <div className="col">
+                          <div
+                            className="card my-5 cascading-right"
+                            style={{
+                              background: "hsla(0, 0%, 100%, 0.55)",
+                              backdropFilter: "blur(30px)",
+                            }}
+                          >
+                            <div className=" card-body p-5 shadow-5 text-center">
+                              <h1 className="fw-bold mb-5 fs-2">
+                                Đăng Nhập Ngay{" "}
+                                <FontAwesomeIcon
+                                  icon={faExclamation}
+                                  shake
+                                  style={{ color: "#000000" }}
+                                />
+                              </h1>
+
+                              <div className="col" col="6">
+                                <input
+                                  placeholder="Gmail"
+                                  type="text"
+                                  class="input mb-4"
+                                  required=""
+                                />
+                              </div>
+
+                              <input
+                                placeholder="Mật khẩu"
+                                type="password"
+                                className="input mb-4"
+                                required=""
+                              />
+
+                              <button className="button type2 "></button>
+
+                              <div className="text-center">
+                                <button
+                                  style={{ color: "black" }}
+                                  className="mt-n4"
+                                  onClick={() => {
+                                    setModalOpen(!modalOpen);
+                                    setModalOpenChild(false);
+                                  }}
+                                >
+                                  Bạn chưa có tài khoản??
+                                </button>
                               </div>
                             </div>
                           </div>

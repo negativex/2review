@@ -1,6 +1,7 @@
 .button {
     height: 50px;
     width: 150px;
+    margin-top: 10px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -54,5 +55,49 @@
   }
   
   .type1:hover::before {
+    transform: translateY(-50px) scale(0) rotate(120deg);
+  }
+
+  .type2::after {
+    content: "Thanks";
+    height: 50px;
+    width: 150px;
+    background-color: #000000;
+    color: #fff;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translateY(50px);
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .type2::before {
+    content: "Đăng Nhập";
+    height: 50px;
+    width: 150px;
+    background-color: #fff;
+    color: #000000;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translateY(0px) scale(1.2);
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .type2:hover::after {
+    transform: translateY(0) scale(1.2);
+  }
+  
+  .type2:hover::before {
     transform: translateY(-50px) scale(0) rotate(120deg);
   }
