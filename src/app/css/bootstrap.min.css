@@ -18,7 +18,7 @@
   --bs-white: #fff;
   --bs-gray: #6c757d;
   --bs-gray-dark: #343a40;
-  --bs-primary: #d4a762;
+  
   --bs-secondary: #9a9a9a;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
@@ -586,10 +586,10 @@ progress {
 }
 .row {
   --bs-gutter-x: 1.5rem;
-  --bs-gutter-y: 0;
+  --bs-gutter-y: 1.5rem;
   display: flex;
   flex-wrap: wrap;
-  margin-top: calc(var(--bs-gutter-y) * -1);
+  margin-top: calc(var(--bs-gutter-y) * -2);
   margin-right: calc(var(--bs-gutter-x) / -2);
   margin-left: calc(var(--bs-gutter-x) / -2);
 }
@@ -4024,11 +4024,11 @@ fieldset:disabled .btn {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  min-width: 4;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 2px solid rgba(0, 0, 0, 0.125);
   border-radius: 8px;
 }
 .card > hr {
@@ -4055,7 +4055,7 @@ fieldset:disabled .btn {
 }
 .card-body {
   flex: 1 1 auto;
-  padding: 1rem 1rem;
+  padding: 2rem 2rem;
 }
 .card-title {
   margin-bottom: 0.5rem;

@@ -6,10 +6,12 @@ import "../css/nav.css";
 import "../css/bootstrap.min.css";
 import "../css/login.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHandPointUp } from "@fortawesome/free-solid-svg-icons";
-
-import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
+import { faHandPointUp, faExclamation } from "@fortawesome/free-solid-svg-icons";
+import "../css/input.css";
+import "../css/buttonLogin.css";
+import { Modal } from "reactstrap";
 import "../css/button.css";
+
 import {
   MDBBtn,
   MDBContainer,
@@ -133,13 +135,9 @@ const Nav = () => {
                 </a>
               </div>
               <a class="btn py-2 px-4 d-none d-xl-inline-block rounded-pill">
-                <Button
-                  color="primary"
-                  type="button"
-                  onClick={() => setModalOpen(!modalOpen)}
-                >
+                <button onClick={() => setModalOpen(!modalOpen)}>
                   Login/Register
-                </Button>
+                </button>
                 <Modal
                   size="xl"
                   toggle={() => setModalOpen(!modalOpen)}
@@ -147,51 +145,59 @@ const Nav = () => {
                   show={modalShow}
                   // className="modal-backdrop"
                 >
-                  <div className=" modal-body ">
-                    <Button
-                      className=" ml-auto"
-                      color="link"
-                      onClick={() => setModalOpen(false)}
-                      type="button"
-                    >
-                      Close
-                    </Button> 
-                 
-                    <MDBContainer fluid className="my-5">
-                      <MDBRow className="g-0 align-items-center">
-                        <MDBCol col="6">
-                          <MDBCard
-                            className="my-5 cascading-right"
+                  <div className=" modal-body container">
+                    <div fluid className="my-5 row">
+                      <div className="g-1 align-items-center row my-0 col">
+                        <div className="col">
+                          <div
+                            className="card my-5 cascading-right"
                             style={{
                               background: "hsla(0, 0%, 100%, 0.55)",
-                              backdropFilter: "blur(20px)",
+                              backdropFilter: "blur(30px)",
                             }}
                           >
-                            <MDBCardBody className="p-5 shadow-5 text-center">
-                              <h1 className="fw-bold mb-5">Đăng Ký Ngay</h1>
-                              <MDBRow>
-                                <MDBCol col="6">
-                                  <MDBInput
-                                    wrapperClass="mb-4"
-                                    id="form1"
-                                  />
-                                </MDBCol>
-
-                                <MDBCol col="6">
-                                  <MDBInput
-                                    wrapperClass="mb-4"
-                                    id="form2"
+                            <div className=" card-body p-5 shadow-5 text-center">
+                              <h1 className="fw-bold mb-5 fs-2">
+                                Đăng Ký Ngay {" "}
+                                <FontAwesomeIcon
+                                  icon={faExclamation}
+                                  shake
+                                  
+                                  style={{ color: "#000000" }}
+                                />
+                              </h1>
+                              <div className="row">
+                                <div className="col" col="6">
+                                  <input
+                                    placeholder="Tên"
                                     type="text"
+                                    class="input"
+                                    required=""
                                   />
-                                </MDBCol>
-                              </MDBRow>
+                                </div>
 
-                              <MDBInput
-                                wrapperClass="mb-4"
-                                id="form3"
-                                type="email"
+                                <div className="col" col="6">
+                                  <input
+                                    placeholder="Gmail"
+                                    type="text"
+                                    class="input mb-4"
+                                    required=""
+                                  />
+                                </div>
+                              </div>
+
+                              <input
+                                placeholder="Mật khẩu"
+                                type="password"
+                                className="input mb-4"
+                                required=""
                               />
-                              
+                              <input
+                                placeholder="Nhập lại mật khẩu"
+                                type="password"
+                                className="input mb-4"
+                                required=""
+                              />
 
                               <div className="d-flex">
                                 <MDBCheckbox
@@ -211,23 +217,23 @@ const Nav = () => {
                                   Bạn đã có tài khoản?
                                 </p>
                               </div>
-                            </MDBCardBody>
-                          </MDBCard>
-                        </MDBCol>
+                            </div>
+                          </div>
+                        </div>
 
-                        <MDBCol col="6">
+                        <div className="col" col="6">
                           <img
                             href="/"
                             src="/movie-posters.png"
                             height={600}
-                            width={1000}
+                            width={600}
                             class="w-100 rounded-4 shadow-4"
                             alt=""
                             fluid
                           />
-                        </MDBCol>
-                      </MDBRow>
-                    </MDBContainer>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </Modal>
               </a>
