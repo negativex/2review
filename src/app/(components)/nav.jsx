@@ -16,7 +16,7 @@ import "../css/buttonLogin.css";
 import { Modal } from "reactstrap";
 import { MDBCheckbox } from "mdb-react-ui-kit";
 import { auth, db } from "../js/firebase.js";
-import { getDatabase, ref, set } from "firebase/database";
+import { ref, set, update } from "firebase/database";
 import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
@@ -62,24 +62,28 @@ const Nav = () => {
       registerInformation.password
     )
       .then((userCredential) => {
-        const user = userCredential.user; 
-        set(ref(db, "users/" +registerInformation.email),
-          {
-            userName: registerInformation.name,
-            Email: registerInformation.email,
-          });
-        
-        // navigate("/homepage");
+        const user = userCredential.user;
+        set(ref(db, "users/" + registerInformation.name +'/'), {
+          userName: registerInformation.name,
+          Email: registerInformation.email,
+        });
       })
-      .catch((err) => alert(err.messages));
+      .catch((err) => alert(err.message));
   };
 
   const handleSignIn = () => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
+    signInWithEmailAndPassword(auth, email,  password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        const data = new Date();
+        update(ref(db, "users/" + name +'/'), {
+          name: name,
+          lastLogin: data,
+        });
+
         // navigate("/homepage");
       })
-      .catch((err) => alert(err.message));
+      .catch((err) => alert(registerInformation.name ));
   };
 
   return (
@@ -328,7 +332,7 @@ const Nav = () => {
                   </div>
                 </Modal>
               </a>
-
+              {/* Đăng nhập */}
               <a class="btn py-2 px-4 d-none d-xl-inline-block rounded-pill">
                 <Modal
                   size="xl"
@@ -363,7 +367,8 @@ const Nav = () => {
                               <div className="col" col="6">
                                 <input
                                   placeholder="Gmail"
-                                  type="text"
+                                  type="email"
+                                  onChange={handleEmailChange}
                                   class="input mb-4"
                                   required=""
                                 />
@@ -372,11 +377,12 @@ const Nav = () => {
                               <input
                                 placeholder="Mật khẩu"
                                 type="password"
+                                onChange={handlePasswordChange}
                                 className="input mb-4"
                                 required=""
                               />
 
-                              <button className="button type2 "></button>
+                              <button className="button type2 " onClick={handleSignIn}></button>
 
                               <div className="text-center">
                                 <button
@@ -385,6 +391,7 @@ const Nav = () => {
                                   onClick={() => {
                                     setModalOpen(!modalOpen);
                                     setModalOpenChild(false);
+                                    
                                   }}
                                 >
                                   Bạn chưa có tài khoản??
