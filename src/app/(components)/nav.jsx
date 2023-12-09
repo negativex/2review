@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import "../css/nav.css";
 import "../css/bootstrap.min.css";
@@ -14,26 +14,59 @@ import "../css/input.css";
 import "../css/buttonLogin.css";
 import { Modal } from "reactstrap";
 import "../css/button.css";
-
 import {
-  MDBBtn,
-  MDBContainer,
-  MDBCard,
-  MDBCardBody,
-  MDBInput,
-  MDBIcon,
-  MDBRow,
-  MDBCol,
-  MDBCheckbox,
-} from "mdb-react-ui-kit";
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../js/firebase.js";
+import { MDBCheckbox } from "mdb-react-ui-kit";
 
-const Nav = () => {
+function Nav() {
   const [modalShow, setModalShow] = React.useState(false);
   const [modalOpen, setModalOpen] = React.useState(false);
 
   const [modalShowChild, setModalShowChild] = React.useState(false);
   const [modalOpenChild, setModalOpenChild] = React.useState(false);
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isRegistering, setIsRegistering] = useState(false);
+  const [registerInformation, setRegisterInformation] = useState({
+    password: "",
+    confirmPassword: "",
+  });
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSignIn = () => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        // navigate("/homepage");
+      })
+      .catch((err) => alert(err.message));
+  };
+
+  const handleRegister = () => {
+    if (registerInformation.password !== registerInformation.confirmPassword) {
+      alert("Please confirm that password are the same");
+      return;
+    }
+    createUserWithEmailAndPassword(
+      auth,
+      registerInformation.email,
+      registerInformation.password
+    )
+      .then(() => {
+        // navigate("/homepage");
+      })
+      .catch((err) => alert(err.message));
+  };
   return (
     <header>
       <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -184,9 +217,16 @@ const Nav = () => {
                                 <div className="col" col="6">
                                   <input
                                     placeholder="Gmail"
-                                    type="text"
+                                    type="mail"
                                     class="input mb-4"
                                     required=""
+                                    value={registerInformation.email}
+                                    onChange={(e) =>
+                                      setRegisterInformation({
+                                        ...registerInformation,
+                                        email: e.target.value,
+                                      })
+                                    }
                                   />
                                 </div>
                               </div>
@@ -196,12 +236,26 @@ const Nav = () => {
                                 type="password"
                                 className="input mb-4"
                                 required=""
+                                value={registerInformation.password}
+                                onChange={(e) =>
+                                  setRegisterInformation({
+                                    ...registerInformation,
+                                    password: e.target.value,
+                                  })
+                                }
                               />
                               <input
                                 placeholder="Nhập lại mật khẩu"
                                 type="password"
                                 className="input mb-4"
                                 required=""
+                                value={registerInformation.confirmPassword}
+                                onChange={(e) =>
+                                  setRegisterInformation({
+                                    ...registerInformation,
+                                    confirmPassword: e.target.value,
+                                  })
+                                }
                               />
 
                               <div className="d-flex">
@@ -215,7 +269,7 @@ const Nav = () => {
                                 </p>
                               </div>
 
-                              <button className="button type1 "></button>
+                              <button className="button type1 " onClick={handleRegister}></button>
 
                               <div className="text-center">
                                 <button
@@ -343,6 +397,6 @@ const Nav = () => {
       <script src="../js/main.js"></script>
     </header>
   );
-};
+}
 
 export default Nav;

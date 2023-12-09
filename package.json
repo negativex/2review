@@ -27,6 +27,7 @@
     "css.gg": "^2.1.1",
     "embla-carousel-class-names": "^8.0.0-rc14",
     "embla-carousel-react": "^8.0.0-rc14",
+    "firebase": "^10.7.1",
     "font-awesome": "^4.7.0",
     "framer-motion": "^10.16.14",
     "mdb-react-ui-kit": "^7.0.0",
