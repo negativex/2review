@@ -2,27 +2,28 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import "../css/nav.css";
-import "../css/bootstrap.min.css";
-import "../css/login.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHandPointUp,
   faExclamation,
 } from "@fortawesome/free-solid-svg-icons";
+import "../css/nav.css";
+import "../css/bootstrap.min.css";
+import "../css/login.css";
+import "../css/button.css";
 import "../css/input.css";
 import "../css/buttonLogin.css";
 import { Modal } from "reactstrap";
-import "../css/button.css";
+import { MDBCheckbox } from "mdb-react-ui-kit";
+import { auth, db } from "../js/firebase.js";
+import { getDatabase, ref, set } from "firebase/database";
 import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
-import { auth } from "../js/firebase.js";
-import { MDBCheckbox } from "mdb-react-ui-kit";
 
-function Nav() {
+const Nav = () => {
   const [modalShow, setModalShow] = React.useState(false);
   const [modalOpen, setModalOpen] = React.useState(false);
 
@@ -30,18 +31,47 @@ function Nav() {
   const [modalOpenChild, setModalOpenChild] = React.useState(false);
 
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isRegistering, setIsRegistering] = useState(false);
-  const [registerInformation, setRegisterInformation] = useState({
-    password: "",
-    confirmPassword: "",
-  });
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
 
+  const [password, setPassword] = useState("");
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
+  };
+
+  const [name, setName] = useState("");
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const [registerInformation, setRegisterInformation] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const handleRegister = () => {
+    if (registerInformation.password !== registerInformation.confirmPassword) {
+      alert("Mật khẩu chưa trùng nè");
+      return;
+    }
+    createUserWithEmailAndPassword(
+      auth,
+      registerInformation.email,
+      registerInformation.password
+    )
+      .then((userCredential) => {
+        const user = userCredential.user; 
+        set(ref(db, "users/" +registerInformation.email),
+          {
+            userName: registerInformation.name,
+            Email: registerInformation.email,
+          });
+        
+        // navigate("/homepage");
+      })
+      .catch((err) => alert(err.messages));
   };
 
   const handleSignIn = () => {
@@ -52,21 +82,6 @@ function Nav() {
       .catch((err) => alert(err.message));
   };
 
-  const handleRegister = () => {
-    if (registerInformation.password !== registerInformation.confirmPassword) {
-      alert("Please confirm that password are the same");
-      return;
-    }
-    createUserWithEmailAndPassword(
-      auth,
-      registerInformation.email,
-      registerInformation.password
-    )
-      .then(() => {
-        // navigate("/homepage");
-      })
-      .catch((err) => alert(err.message));
-  };
   return (
     <header>
       <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -211,6 +226,13 @@ function Nav() {
                                     type="text"
                                     class="input"
                                     required=""
+                                    value={registerInformation.name}
+                                    onChange={(e) =>
+                                      setRegisterInformation({
+                                        ...registerInformation,
+                                        name: e.target.value,
+                                      })
+                                    }
                                   />
                                 </div>
 
@@ -269,7 +291,10 @@ function Nav() {
                                 </p>
                               </div>
 
-                              <button className="button type1 " onClick={handleRegister}></button>
+                              <button
+                                className="button type1 "
+                                onClick={handleRegister}
+                              ></button>
 
                               <div className="text-center">
                                 <button
@@ -397,6 +422,6 @@ function Nav() {
       <script src="../js/main.js"></script>
     </header>
   );
-}
+};
 
 export default Nav;
