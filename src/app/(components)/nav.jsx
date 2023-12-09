@@ -2,27 +2,28 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import "../css/nav.css";
-import "../css/bootstrap.min.css";
-import "../css/login.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHandPointUp,
   faExclamation,
 } from "@fortawesome/free-solid-svg-icons";
+import "../css/nav.css";
+import "../css/bootstrap.min.css";
+import "../css/login.css";
+import "../css/button.css";
 import "../css/input.css";
 import "../css/buttonLogin.css";
 import { Modal } from "reactstrap";
-import "../css/button.css";
+import { MDBCheckbox } from "mdb-react-ui-kit";
+import { auth, db } from "../js/firebase.js";
+import { ref, set, update } from "firebase/database";
 import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
-import { auth } from "../js/firebase.js";
-import { MDBCheckbox } from "mdb-react-ui-kit";
 
-function Nav() {
+const Nav = () => {
   const [modalShow, setModalShow] = React.useState(false);
   const [modalOpen, setModalOpen] = React.useState(false);
 
@@ -30,31 +31,29 @@ function Nav() {
   const [modalOpenChild, setModalOpenChild] = React.useState(false);
 
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isRegistering, setIsRegistering] = useState(false);
-  const [registerInformation, setRegisterInformation] = useState({
-    password: "",
-    confirmPassword: "",
-  });
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
 
+  const [password, setPassword] = useState("");
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
 
-  const handleSignIn = () => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        // navigate("/homepage");
-      })
-      .catch((err) => alert(err.message));
+  const [name, setName] = useState("");
+  const handleNameChange = (e) => {
+    setName(e.target.value);
   };
 
+  const [registerInformation, setRegisterInformation] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
   const handleRegister = () => {
     if (registerInformation.password !== registerInformation.confirmPassword) {
-      alert("Please confirm that password are the same");
+      alert("Mật khẩu chưa trùng nè");
       return;
     }
     createUserWithEmailAndPassword(
@@ -62,11 +61,31 @@ function Nav() {
       registerInformation.email,
       registerInformation.password
     )
-      .then(() => {
-        // navigate("/homepage");
+      .then((userCredential) => {
+        const user = userCredential.user;
+        set(ref(db, "users/" + registerInformation.name +'/'), {
+          userName: registerInformation.name,
+          Email: registerInformation.email,
+        });
       })
       .catch((err) => alert(err.message));
   };
+
+  const handleSignIn = () => {
+    signInWithEmailAndPassword(auth, email,  password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        const data = new Date();
+        update(ref(db, "users/" + name +'/'), {
+          name: name,
+          lastLogin: data,
+        });
+
+        // navigate("/homepage");
+      })
+      .catch((err) => alert(registerInformation.name ));
+  };
+
   return (
     <header>
       <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -211,6 +230,13 @@ function Nav() {
                                     type="text"
                                     class="input"
                                     required=""
+                                    value={registerInformation.name}
+                                    onChange={(e) =>
+                                      setRegisterInformation({
+                                        ...registerInformation,
+                                        name: e.target.value,
+                                      })
+                                    }
                                   />
                                 </div>
 
@@ -269,7 +295,10 @@ function Nav() {
                                 </p>
                               </div>
 
-                              <button className="button type1 " onClick={handleRegister}></button>
+                              <button
+                                className="button type1 "
+                                onClick={handleRegister}
+                              ></button>
 
                               <div className="text-center">
                                 <button
@@ -303,7 +332,7 @@ function Nav() {
                   </div>
                 </Modal>
               </a>
-
+              {/* Đăng nhập */}
               <a class="btn py-2 px-4 d-none d-xl-inline-block rounded-pill">
                 <Modal
                   size="xl"
@@ -338,7 +367,8 @@ function Nav() {
                               <div className="col" col="6">
                                 <input
                                   placeholder="Gmail"
-                                  type="text"
+                                  type="email"
+                                  onChange={handleEmailChange}
                                   class="input mb-4"
                                   required=""
                                 />
@@ -347,11 +377,12 @@ function Nav() {
                               <input
                                 placeholder="Mật khẩu"
                                 type="password"
+                                onChange={handlePasswordChange}
                                 className="input mb-4"
                                 required=""
                               />
 
-                              <button className="button type2 "></button>
+                              <button className="button type2 " onClick={handleSignIn}></button>
 
                               <div className="text-center">
                                 <button
@@ -360,6 +391,7 @@ function Nav() {
                                   onClick={() => {
                                     setModalOpen(!modalOpen);
                                     setModalOpenChild(false);
+                                    
                                   }}
                                 >
                                   Bạn chưa có tài khoản??
@@ -397,6 +429,6 @@ function Nav() {
       <script src="../js/main.js"></script>
     </header>
   );
-}
+};
 
 export default Nav;
