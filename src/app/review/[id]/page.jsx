@@ -1,10 +1,28 @@
 import Link from "next/link";
 import Image from "next/image";
 import CarouselReview from "./carouselrv";
+import { useEffect, useState } from "react";
 const OPTIONS = { slidesToScroll: "auto", containScroll: "trimSnaps" };
 const SLIDE_COUNT = 12;
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 const reviewPage = () => {
+  const [data, setData] = useState({
+    content1: "Loading...",
+    content2: "Loading...",
+  });
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const result = await getData();
+        setData(result);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    fetchData();
+  }, []);
   return (
     <header>
       <div className="relative flex items-center">
