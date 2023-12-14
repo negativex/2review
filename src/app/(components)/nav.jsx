@@ -1,31 +1,27 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import "../css/nav.css";
-import "../css/bootstrap.min.css";
-import "../css/login.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHandPointUp,
   faExclamation,
 } from "@fortawesome/free-solid-svg-icons";
+import "../css/nav.css";
+import "../css/bootstrap.min.css";
+import "../css/login.css";
+import "../css/button.css";
 import "../css/input.css";
 import "../css/buttonLogin.css";
 import { Modal } from "reactstrap";
-import "../css/button.css";
-
+import { MDBCheckbox } from "mdb-react-ui-kit";
+import { auth, db } from "../js/firebase.js";
+import { ref, set, update } from "firebase/database";
 import {
-  MDBBtn,
-  MDBContainer,
-  MDBCard,
-  MDBCardBody,
-  MDBInput,
-  MDBIcon,
-  MDBRow,
-  MDBCol,
-  MDBCheckbox,
-} from "mdb-react-ui-kit";
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 
 const Nav = () => {
   const [modalShow, setModalShow] = React.useState(false);
@@ -33,6 +29,62 @@ const Nav = () => {
 
   const [modalShowChild, setModalShowChild] = React.useState(false);
   const [modalOpenChild, setModalOpenChild] = React.useState(false);
+
+  const [email, setEmail] = useState("");
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const [password, setPassword] = useState("");
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const [name, setName] = useState("");
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const [registerInformation, setRegisterInformation] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const handleRegister = () => {
+    if (registerInformation.password !== registerInformation.confirmPassword) {
+      alert("Mật khẩu chưa trùng nè");
+      return;
+    }
+    createUserWithEmailAndPassword(
+      auth,
+      registerInformation.email,
+      registerInformation.password
+    )
+      .then((userCredential) => {
+        const user = userCredential.user;
+        set(ref(db, "users/" + registerInformation.name +'/'), {
+          userName: registerInformation.name,
+          Email: registerInformation.email,
+        });
+      })
+      .catch((err) => alert(err.message));
+  };
+
+  const handleSignIn = () => {
+    signInWithEmailAndPassword(auth, email,  password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        const data = new Date();
+        update(ref(db, "users/" + name +'/'), {
+          name: name,
+          lastLogin: data,
+        });
+
+        // navigate("/homepage");
+      })
+      .catch((err) => alert(registerInformation.name ));
+  };
 
   return (
     <header>
@@ -178,15 +230,29 @@ const Nav = () => {
                                     type="text"
                                     class="input"
                                     required=""
+                                    value={registerInformation.name}
+                                    onChange={(e) =>
+                                      setRegisterInformation({
+                                        ...registerInformation,
+                                        name: e.target.value,
+                                      })
+                                    }
                                   />
                                 </div>
 
                                 <div className="col" col="6">
                                   <input
                                     placeholder="Gmail"
-                                    type="text"
+                                    type="mail"
                                     class="input mb-4"
                                     required=""
+                                    value={registerInformation.email}
+                                    onChange={(e) =>
+                                      setRegisterInformation({
+                                        ...registerInformation,
+                                        email: e.target.value,
+                                      })
+                                    }
                                   />
                                 </div>
                               </div>
@@ -196,12 +262,26 @@ const Nav = () => {
                                 type="password"
                                 className="input mb-4"
                                 required=""
+                                value={registerInformation.password}
+                                onChange={(e) =>
+                                  setRegisterInformation({
+                                    ...registerInformation,
+                                    password: e.target.value,
+                                  })
+                                }
                               />
                               <input
                                 placeholder="Nhập lại mật khẩu"
                                 type="password"
                                 className="input mb-4"
                                 required=""
+                                value={registerInformation.confirmPassword}
+                                onChange={(e) =>
+                                  setRegisterInformation({
+                                    ...registerInformation,
+                                    confirmPassword: e.target.value,
+                                  })
+                                }
                               />
 
                               <div className="d-flex">
@@ -215,7 +295,10 @@ const Nav = () => {
                                 </p>
                               </div>
 
-                              <button className="button type1 "></button>
+                              <button
+                                className="button type1 "
+                                onClick={handleRegister}
+                              ></button>
 
                               <div className="text-center">
                                 <button
@@ -249,7 +332,7 @@ const Nav = () => {
                   </div>
                 </Modal>
               </a>
-
+              {/* Đăng nhập */}
               <a class="btn py-2 px-4 d-none d-xl-inline-block rounded-pill">
                 <Modal
                   size="xl"
@@ -284,7 +367,8 @@ const Nav = () => {
                               <div className="col" col="6">
                                 <input
                                   placeholder="Gmail"
-                                  type="text"
+                                  type="email"
+                                  onChange={handleEmailChange}
                                   class="input mb-4"
                                   required=""
                                 />
@@ -293,11 +377,12 @@ const Nav = () => {
                               <input
                                 placeholder="Mật khẩu"
                                 type="password"
+                                onChange={handlePasswordChange}
                                 className="input mb-4"
                                 required=""
                               />
 
-                              <button className="button type2 "></button>
+                              <button className="button type2 " onClick={handleSignIn}></button>
 
                               <div className="text-center">
                                 <button
@@ -306,6 +391,7 @@ const Nav = () => {
                                   onClick={() => {
                                     setModalOpen(!modalOpen);
                                     setModalOpenChild(false);
+                                    
                                   }}
                                 >
                                   Bạn chưa có tài khoản??
