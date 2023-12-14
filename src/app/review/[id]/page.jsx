@@ -1,12 +1,24 @@
-import Link from "next/link";
+// import Link from "next/link";
+import React from "react";
 import Image from "next/image";
 import CarouselReview from "./carouselrv";
 const OPTIONS = { slidesToScroll: "auto", containScroll: "trimSnaps" };
 const SLIDE_COUNT = 12;
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
-const reviewPage = () => {
+const getData = async (id) => {
+  const res = await fetch(`http://localhost:3000/api/media/${id}`, {
+    cache: "no-store",
+  });
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+};
+export default async function ReviewPage({ params }) {
+  const data = await getData(params.id);
   return (
     <header>
+      {/* <pre>{JSON.stringify(data, null, 4)}</pre> */}
       <div className="relative flex items-center">
         <div className="flex-grow border-t border-gray-400"></div>
       </div>
@@ -27,7 +39,7 @@ const reviewPage = () => {
           <div className="flex-auto w-1/3 md:pl-4 2xl:pl-16">
             <div className="flex overflow-hidden h-1/3 flex-col py-8 overflow-y-auto">
               <p className="text-center uppercase xl:text-3xl whitespace-normal font-semibold lg:text-2xl 2xl:text-5xl">
-                Bến Phà Xác Sống
+                {data.results[0].title}
               </p>
               <a
                 href="#"
@@ -43,16 +55,17 @@ const reviewPage = () => {
                   2REVIEWSCORE
                 </p>
                 <p className="mt-2 font-bold xl:text-2xl lg:text-base 2xl:text-4xl">
-                  Không thể cứu vớt
+                  {/* {data.adm_voice} */}
+                  Phim rat hay
                 </p>
                 <p className="mt-2 font-normal xl:text-xl hover:underline lg:text-sm 2xl:text-3xl">
-                  Dựa trên 12 đánh giá
+                  Dựa trên {data.results[0].adm_count} đánh giá
                 </p>
               </div>
               <div className="flex w-1/3 ml-10 justify-center items-center">
                 <div className=" bg-redReview xl:w-28 xl:h-28 shadow-lg rounded-2xl 2xl:w-36 lg:h-20 lg:w-20 2xl:h-36 drop-shadow-rv">
                   <span className="w-full h-full flex justify-center items-center xl:text-4xl lg:text-2xl 2xl:text-5xl font-black">
-                    15
+                    {data.results[0].adm_score}
                   </span>
                 </div>
               </div>
@@ -64,10 +77,11 @@ const reviewPage = () => {
                   USERSCORE
                 </p>
                 <p className="mt-2 font-bold xl:text-2xl lg:text-base 2xl:text-4xl">
-                  Có khen có chê
+                  {/* {data.usr_voice} */}
+                  Phim hay
                 </p>
                 <p className="mt-2 font-normal xl:text-xl hover:underline lg:text-sm 2xl:text-3xl">
-                  Dựa trên 5 đánh giá
+                  Dựa trên {data.results[0].usr_count} đánh giá
                 </p>
               </div>
               <div className="flex w-1/3 ml-10 justify-center items-center">
@@ -75,7 +89,7 @@ const reviewPage = () => {
                 {/* <div className="bg-black bg-opacity-25 flex justify-center items-center"> */}
                 <div className=" bg-yellowReview xl:w-28 xl:h-28 shadow-lg rounded-2xl lg:h-20 lg:w-20 2xl:w-36 2xl:h-36 drop-shadow-rv">
                   <span className="w-full h-full flex justify-center items-center xl:text-4xl lg:text-2xl 2xl:text-5xl font-black">
-                    50
+                    {data.results[0].usr_score}
                   </span>
                 </div>
               </div>
@@ -130,7 +144,7 @@ const reviewPage = () => {
           <div className="flex-grow border-t border-gray-400"></div>
         </div>
         <div>
-          <div className="relative flex mr-20 2xl:mb-20">
+          <div className="relative flex 2xl:mb-20">
             <section className="landing__carousel">
               <CarouselReview slides={SLIDES} options={OPTIONS} />
             </section>
@@ -139,6 +153,6 @@ const reviewPage = () => {
       </div>
     </header>
   );
-};
+}
 
-export default reviewPage;
+// export default ReviewPage;

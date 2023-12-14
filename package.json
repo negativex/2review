@@ -31,6 +31,8 @@
     "font-awesome": "^4.7.0",
     "framer-motion": "^10.16.14",
     "mdb-react-ui-kit": "^7.0.0",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.0.3",
     "next": "^14.0.3",
     "postcss-loader": "^7.3.3",
     "react": "^18.2.0",
@@ -42,6 +44,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",
+    "encoding": "^0.1.13",
     "eslint": "^8",
     "eslint-config-next": "14.0.1",
     "postcss": "^8.4.32",
