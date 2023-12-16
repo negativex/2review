@@ -19,8 +19,8 @@ export async function GET() {
   try {
     const results = await database
       .collection("media")
-      // .find({})
-      .find({ _id: new ObjectId("6579bc8cebe8f5ace4af4052") })
+      .find({})
+      // .find({ _id: new ObjectId("6579bc8cebe8f5ace4af4052") })
       // .match({_id: : "6579bc8cebe8f5ace4af4052"})
       .project({
         title: 1,

@@ -29,6 +29,8 @@ export async function GET(request, { params }) {
         adm_score: 1,
         usr_count: 1,
         adm_count: 1,
+        img: 1,
+        summary: 1,
       })
       // .limit(10)
       .toArray();
