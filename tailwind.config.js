@@ -14,6 +14,7 @@ module.exports = {
       },
     },
     colors: {
+      btn: "#727272",
       nav: "#FFFFFF",
       page: "#BC4749",
       card: "#BC4749",
@@ -59,6 +60,14 @@ module.exports = {
       },
       fontSize: {
         hidden: ["0px", "0px"],
+      },
+
+      height: {
+        main_img_xl: "28rem",
+        main_img_2xl: "40rem",
+        main_img_lg: "22rem",
+        main_img_md: "20rem",
+        main_img_sm: "16rem",
       },
     },
   },

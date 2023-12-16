@@ -2,7 +2,7 @@
 import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import ClassNames from "embla-carousel-class-names";
-import imageCarouselrv from "../[id]/imageCarouselrv";
+import imageCarouselrv from "./imageCarouselrv";
 import Image from "next/image";
 const CarouselReview = (props) => {
   const { slides, options } = props;
