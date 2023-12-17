@@ -1,5 +1,5 @@
 import { connectToDatabase } from "../../../mongo/mongodb";
-import { ObjectId } from "mongodb";
+// import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
 
 export async function GET(request, { params }) {
@@ -10,15 +10,18 @@ export async function GET(request, { params }) {
       .collection("review")
       // .find({})
       //   .findOne({ _id: id })
-      .find({ _id: new ObjectId(id) })
+      .find({ media_id: id })
       .project({
-        title: 1,
-        usr_id: 1,
+        _id: 1,
         admin_role: 1,
-        body: 1,
-        score: 1,
-        created_at: 1,
+        // title: 1,
+        // usr_id: 1,
+        // admin_role: 1,
+        // body: 1,
+        // score: 1,
+        // created_at: 1,
       })
+      .limit(4)
       .toArray();
     return NextResponse.json({ results }, { status: 200 });
   } catch (err) {

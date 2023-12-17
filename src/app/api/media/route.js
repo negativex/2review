@@ -24,10 +24,9 @@ export async function GET() {
       // .match({_id: : "6579bc8cebe8f5ace4af4052"})
       .project({
         title: 1,
-        usr_score: 1,
         adm_score: 1,
-        usr_count: 1,
-        adm_count: 1,
+        img_sm: 1,
+        tags: 1,
       })
       // .limit(10)
       .toArray();

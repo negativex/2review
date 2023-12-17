@@ -17,7 +17,7 @@ const ReviewCarousel = (props) => {
               key={index}
             >
               <Image
-                className="block h-[var(--slide-height)] w-full object-cover"
+                // className="block h-[var(--slide-height)] w-full object-cover"
                 src={imageCarousel2(index)}
                 alt="Your alt text"
                 width="fill"
