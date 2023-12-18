@@ -8,8 +8,6 @@ export async function GET(request, { params }) {
   try {
     const results = await database
       .collection("review")
-      // .find({})
-      //   .findOne({ _id: id })
       .find({ media_id: id })
       .project({
         _id: 1,
@@ -18,7 +16,7 @@ export async function GET(request, { params }) {
         // usr_id: 1,
         // admin_role: 1,
         // body: 1,
-        // score: 1,
+        score: 1,
         // created_at: 1,
       })
       .limit(4)
