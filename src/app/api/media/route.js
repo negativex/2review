@@ -15,6 +15,7 @@ export async function GET() {
         adm_score: 1,
         img_sm: 1,
         tags: 1,
+        img: 1,
       })
       .limit(12)
       .toArray();
