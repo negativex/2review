@@ -1,4 +1,6 @@
 "use client";
+// import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { React, useState, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import ClassNames from "embla-carousel-class-names";
@@ -7,7 +9,6 @@ const CarouselReview = (props) => {
   const { slides, options } = props;
   const [emblaRef] = useEmblaCarousel(options, [ClassNames()]);
   const [data, setData] = useState(null);
-  const [counter, setCounter] = useState(0);
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
@@ -29,6 +30,11 @@ const CarouselReview = (props) => {
       return "bg-redReview"; // Màu nền đỏ cho điểm <= 50
     }
   }
+  const router = useRouter();
+  const handleItemClick = (itemId) => {
+    router.refresh();
+    router.push(`/review/${itemId}`);
+  };
   if (isLoading) return <h1>Loading...</h1>;
   return (
     <div className="embla_hot">
@@ -38,8 +44,14 @@ const CarouselReview = (props) => {
             <div
               className="flex flex-col flex-[0_0_var(--slide-size)] max-w-full min-w-0 pl-[var(--slide-spacing)] relative embla__class-name "
               key={index}
+              onClick={() =>
+                handleItemClick(data.results[index % data.results.length]._id)
+              }
             >
               <Image
+                // href={`/review/${
+                //   data.results[index % data.results.length]._id
+                // }`}
                 className="h-[var(--slide-height)] 2xl:h-4/5 object-cover rounded-md mb-2 2xl:mb-10"
                 src={data.results[index % data.results.length].img_sm}
                 alt="Your alt text"

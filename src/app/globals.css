@@ -29,7 +29,7 @@ body {
 /* Phần này là của carousel */
 .embla {
   --slide-spacing: 1rem;
-  --slide-size: 15%;
+  --slide-size: 25%;
   --slide-height: 15rem;
   /* padding: 1.6rem; */
 }
@@ -41,8 +41,8 @@ body {
 }
 .embla_hot {
   --slide-spacing: 1rem;
-  --slide-size: 20%;
-  --slide-height: 19rem;
+  --slide-size: 16%;
+  --slide-height: 15rem;
   /* padding: 1.6rem; */
 }
 .embla__container_hot {

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-// import Carousel from "../(components)/carousel";
+import YtTrailer from "../(components)/Trailer";
 import ReviewCarousel from "../(components)/carousel2";
 import HotCarousel from "../(components)/carousel1";
 const OPTIONS = { slidesToScroll: "auto", containScroll: "trimSnaps" };
@@ -126,6 +126,9 @@ const landingPage = () => {
         </p>
         <div className="relative flex py-3 mr-20 items-center">
           <div className="flex-grow border-t border-gray-400"></div>
+        </div>
+        <div>
+          <YtTrailer />
         </div>
       </div>
     </header>
