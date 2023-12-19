@@ -12,11 +12,10 @@ export async function GET(request, { params }) {
       .find({ _id: new ObjectId(id) })
       .project({
         title: 1,
-        usr_id: 1,
         admin_role: 1,
         body: 1,
         score: 1,
-        created_at: 1,
+        published_on: 1,
       })
       .toArray();
     return NextResponse.json({ results }, { status: 200 });

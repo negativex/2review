@@ -59,7 +59,7 @@ const CarouselReview = (props) => {
                 height={5000}
               />
               <div className="items-center justify-end py-2">
-                <p className="w-2/3 max-h-10 xl:max-h-20 2xl:max-h-40 text-sm 2xl:text-4xl xl:text-xl lg:text-base font-black">
+                <p className="w-2/3 max-h-5 xl:max-h-20 2xl:max-h-28 text-sm 2xl:text-4xl xl:text-xl lg:text-base font-black">
                   {data.results[index % data.results.length].title}
                 </p>
                 <div

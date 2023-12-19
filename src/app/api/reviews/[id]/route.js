@@ -19,7 +19,7 @@ export async function GET(request, { params }) {
         score: 1,
         // created_at: 1,
       })
-      .limit(4)
+      // .limit(4)
       .toArray();
     return NextResponse.json({ results }, { status: 200 });
   } catch (err) {

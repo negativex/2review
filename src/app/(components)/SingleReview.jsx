@@ -20,19 +20,6 @@ const SingleReview = async ({ review_id }) => {
       return "bg-redReview"; // Màu nền đỏ cho điểm <= 50
     }
   }
-  // function formatTimestamp(timestamp) {
-  //   const options = {
-  //     year: "numeric",
-  //     month: "2-digit",
-  //     day: "2-digit",
-  //     hour: "2-digit",
-  //     minute: "2-digit",
-  //     hour12: true,
-  //   };
-  //   const date = new Date(timestamp);
-  //   const formattedDate = date.toLocaleString("vi-VN", options);
-  //   return formattedDate;
-  // }
   const data = await getData(review_id);
   // const createdDateTime = formatTimestamp(data.results[0].created_at);
   // console.log(createdDateTime);
@@ -66,8 +53,7 @@ const SingleReview = async ({ review_id }) => {
       </div>
       <div className="flex mt-2">
         <p className=" text-sm 2xl:text-2xl xl:text-base lg:text-sm font-normal">
-          {/* {createdDateTime} */}
-          dd/mm/yyyy
+          {data.results[0].published_on}
         </p>
       </div>
     </div>

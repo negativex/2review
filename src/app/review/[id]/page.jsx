@@ -88,7 +88,7 @@ export default async function ReviewPage({ params }) {
             />
           </div>
           <div className="flex-auto w-full sm:w-1/2 lg:w-1/3 pl-2 md:pl-4 2xl:pl-16">
-            <div className="flex overflow-hidden h-1/3 flex-col py-8 overflow-y-auto">
+            <div className="flex overflow-x-hidden h-1/3 flex-col py-8">
               <p className="text-center uppercase text-sm xl:text-3xl whitespace-normal font-semibold lg:text-2xl 2xl:text-5xl">
                 {data.results[0].title}
               </p>
@@ -180,7 +180,11 @@ export default async function ReviewPage({ params }) {
         </div>
         {/* đoan này là đoạn review của 2Review */}
         <div className="flex flex-row items-center">
-          {adm_ids.length > 0 ? (
+          {adm_ids.length > 3 ? (
+            adm_ids
+              .slice(-4)
+              .map((id) => <SingReview key={id} review_id={id} />)
+          ) : adm_ids.length > 0 ? (
             adm_ids.map((id) => <SingReview key={id} review_id={id} />)
           ) : (
             <p className="flex-1 text-center text-xs xl:text-xl lg:text-base 2xl:text-2xl font-semibold">
@@ -198,7 +202,11 @@ export default async function ReviewPage({ params }) {
         </div>
         {/* đoan này là đoạn review của 2Review */}
         <div className="flex flex-row items-center">
-          {usr_ids.length > 0 ? (
+          {usr_ids.length > 3 ? (
+            usr_ids
+              .slice(-4)
+              .map((id) => <SingReview key={id} review_id={id} />)
+          ) : usr_ids.length > 0 ? (
             usr_ids.map((id) => <SingReview key={id} review_id={id} />)
           ) : (
             <p className="flex-1 text-center text-xs xl:text-xl lg:text-base 2xl:text-2xl font-semibold">
@@ -214,9 +222,13 @@ export default async function ReviewPage({ params }) {
         <div className="relative flex py-3 items-center">
           <div className="flex-grow border-t border-gray-400"></div>
         </div>
-        <div className="whitespace-pre-line text-xs xl:text-xl lg:text-base 2xl:text-2xl">
+        {/* <div className="whitespace-pre-line text-xs xl:text-xl lg:text-base 2xl:text-2xl">
           {data.results[0].summary}
-        </div>
+        </div> */}
+        <div
+          className="whitespace-pre-line text-xs xl:text-xl lg:text-base 2xl:text-2xl"
+          dangerouslySetInnerHTML={{ __html: data.results[0].summary }}
+        />
         <div className="flex flex-row items-center mt-5">
           <p className="flex-1 text-xs xl:text-xl lg:text-base 2xl:text-2xl font-semibold">
             Nội dung liên quan:
