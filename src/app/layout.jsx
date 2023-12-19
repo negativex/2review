@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
           </div>
           <div className="flex-grow overflow-y-auto bg-default-text text-black-text">
             {children}
-            {/* <Footer></Footer> */}
+            <Footer></Footer>
           </div>
         </div>
       </body>

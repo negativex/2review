@@ -1,8 +1,10 @@
 // import Link from "next/link";
 import React from "react";
 import Image from "next/image";
+import YTTrailer from "../../(components)/Trailer";
 import CarouselReview from "../../(components)/carouselrv";
-import SingReview from "../../(components)/SingleReview";
+import SingReview from "../../(components)/BoxReview";
+import NewModal from "../../(components)/ReviewModal";
 const OPTIONS = { slidesToScroll: "auto", containScroll: "trimSnaps" };
 const SLIDE_COUNT = 12;
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
@@ -82,8 +84,8 @@ export default async function ReviewPage({ params }) {
               // className="h-48 w-full object-cover md:h-full md:w-48"
               href="/"
               src={data.results[0].img}
-              height={5000}
-              width={5000}
+              height={2000}
+              width={2000}
               alt="banner phim"
             />
           </div>
@@ -214,7 +216,11 @@ export default async function ReviewPage({ params }) {
             </p>
           )}
         </div>
-        <div className="flex flex-row items-center mt-5">
+        {/* Thêm đánh giá */}
+        <div>
+          <NewModal this_media_id={params.id} />
+        </div>
+        <div className="flex flex-row items-center mt-3">
           <p className="flex-1 text-xs xl:text-xl lg:text-base 2xl:text-2xl font-semibold">
             Thông tin tổng quan:
           </p>
@@ -229,6 +235,15 @@ export default async function ReviewPage({ params }) {
           className="whitespace-pre-line text-xs xl:text-xl lg:text-base 2xl:text-2xl"
           dangerouslySetInnerHTML={{ __html: data.results[0].summary }}
         />
+        <div className="flex flex-row items-center mt-5">
+          <p className="flex-1 text-xs xl:text-xl lg:text-base 2xl:text-2xl font-semibold">
+            Trailer phim:
+          </p>
+        </div>
+        <div className="relative flex py-3 items-center">
+          <div className="flex-grow border-t border-gray-400"></div>
+        </div>
+        <YTTrailer vidId={data.results[0].trailer} />
         <div className="flex flex-row items-center mt-5">
           <p className="flex-1 text-xs xl:text-xl lg:text-base 2xl:text-2xl font-semibold">
             Nội dung liên quan:

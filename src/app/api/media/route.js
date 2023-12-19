@@ -16,6 +16,7 @@ export async function GET() {
         img_sm: 1,
         tags: 1,
         img: 1,
+        trailer: 1,
       })
       .limit(12)
       .toArray();

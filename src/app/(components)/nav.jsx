@@ -63,7 +63,7 @@ const Nav = () => {
     )
       .then((userCredential) => {
         const user = userCredential.user;
-        set(ref(db, "users/" + registerInformation.name +'/'), {
+        set(ref(db, "users/" + registerInformation.name + "/"), {
           userName: registerInformation.name,
           Email: registerInformation.email,
         });
@@ -72,18 +72,18 @@ const Nav = () => {
   };
 
   const handleSignIn = () => {
-    signInWithEmailAndPassword(auth, email,  password)
+    signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
         const data = new Date();
-        update(ref(db, "users/" + name +'/'), {
+        update(ref(db, "users/" + name + "/"), {
           name: name,
           lastLogin: data,
         });
 
         // navigate("/homepage");
       })
-      .catch((err) => alert(registerInformation.name ));
+      .catch((err) => alert(registerInformation.name));
   };
 
   return (
@@ -382,7 +382,10 @@ const Nav = () => {
                                 required=""
                               />
 
-                              <button className="button type2 " onClick={handleSignIn}></button>
+                              <button
+                                className="button type2 "
+                                onClick={handleSignIn}
+                              ></button>
 
                               <div className="text-center">
                                 <button
@@ -391,7 +394,6 @@ const Nav = () => {
                                   onClick={() => {
                                     setModalOpen(!modalOpen);
                                     setModalOpenChild(false);
-                                    
                                   }}
                                 >
                                   Bạn chưa có tài khoản??
