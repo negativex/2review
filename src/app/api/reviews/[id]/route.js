@@ -17,6 +17,7 @@ export async function GET(request, { params }) {
         // admin_role: 1,
         // body: 1,
         score: 1,
+        // media_id: 1,
         // created_at: 1,
       })
       // .limit(4)

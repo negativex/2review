@@ -19,7 +19,9 @@ export async function GET(request, { params }) {
         usr_count: 1,
         adm_count: 1,
         img: 1,
+        img_sm: 1,
         summary: 1,
+        trailer: 1,
       })
       // .limit(10)
       .toArray();

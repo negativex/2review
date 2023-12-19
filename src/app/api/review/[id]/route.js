@@ -16,6 +16,7 @@ export async function GET(request, { params }) {
         body: 1,
         score: 1,
         published_on: 1,
+        media_id: 1,
       })
       .toArray();
     return NextResponse.json({ results }, { status: 200 });

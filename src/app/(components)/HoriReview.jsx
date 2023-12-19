@@ -11,6 +11,7 @@ const getData = async (id) => {
 };
 
 const SingleReview = async ({ review_id }) => {
+  //   const review_id = params.id;
   function getBackgroundColor(score) {
     if (score > 80) {
       return "bg-greenReview"; // Màu nền xanh cho điểm > 80
@@ -24,7 +25,7 @@ const SingleReview = async ({ review_id }) => {
   // const createdDateTime = formatTimestamp(data.results[0].created_at);
   // console.log(createdDateTime);
   return (
-    <div className="flex w-1/4 flex-col p-4">
+    <div className="flex w-full flex-col p-4">
       <div className="flex flex-row w-full items-center">
         <div
           className={`${getBackgroundColor(
@@ -42,14 +43,9 @@ const SingleReview = async ({ review_id }) => {
         </div>
       </div>
       <div className="flex mt-2">
-        <p className="whitespace-pre-line max-h-28 2xl:max-h-32 overflow-hidden text-sm 2xl:text-2xl xl:text-base lg:text-base font-light py-3">
+        <p className="whitespace-pre-line max-h-28 2xl:max-h-32 text-sm 2xl:text-2xl xl:text-base lg:text-base font-light py-3">
           {data.results[0].body}
         </p>
-      </div>
-      <div className="flex py-2 2xl:mt-4">
-        <button class=" bg-btn hover:bg-btn text-white font-normal p-2 px-4 rounded-full">
-          Đọc toàn bộ
-        </button>
       </div>
       <div className="flex mt-2">
         <p className=" text-sm 2xl:text-2xl xl:text-base lg:text-sm font-normal">
