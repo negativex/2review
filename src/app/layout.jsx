@@ -16,12 +16,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={mont.className}>
         <div className="flex flex-col h-full max-h-full">
-          <div className="bg-nav">
+          {/* <div className="bg-nav">
             <Nav></Nav>
-          </div>
+          </div> */}
           <div className="flex-grow overflow-y-auto bg-default-text text-black-text">
             {children}
-            <Footer></Footer>
+            {/* <Footer></Footer> */}
           </div>
         </div>
       </body>
