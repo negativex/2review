@@ -27,7 +27,7 @@ const ReviewModal = (this_media_id) => {
   };
   const post = async () => {
     try {
-      const res = await fetch(`${process.env.VERCEL_URL}/api/review`, {
+      const res = await fetch(`/api/review`, {
         method: "POST",
         body: JSON.stringify({ postData }),
       });

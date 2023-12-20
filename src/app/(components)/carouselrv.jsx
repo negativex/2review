@@ -12,7 +12,7 @@ const CarouselReview = (props) => {
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
-      fetch(`${process.env.VERCEL_URL}/api/media`)
+      fetch(`/api/media`)
         .then((res) => res.json())
         .then((data) => {
           setData(data);
