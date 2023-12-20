@@ -1,7 +1,7 @@
 import Image from "next/image";
 import OneReview from "../../../(components)/HoriReview";
 const getAllReviewId = async (id) => {
-  const res = await fetch(`${process.env.VERCEL_URL}/api/reviews/${id}`, {
+  const res = await fetch(`https://2review-au5e.vercel.app/api/reviews/${id}`, {
     cache: "no-store",
   });
   if (!res.ok) {
@@ -10,7 +10,7 @@ const getAllReviewId = async (id) => {
   return res.json();
 };
 const getData = async (id) => {
-  const res = await fetch(`${process.env.VERCEL_URL}/api/media/${id}`, {
+  const res = await fetch(`https://2review-au5e.vercel.app/api/media/${id}`, {
     cache: "no-store",
   });
   if (!res.ok) {
