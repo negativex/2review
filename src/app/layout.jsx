@@ -1,7 +1,7 @@
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import Nav from "./(components)/Nav";
-import Footer from "./(components)/footer";
+// import Nav from "./(components)/Nav";
+// import Footer from "./(components)/footer";
 // import { config } from "@fortawesome/fontawesome-svg-core";
 // import "@fortawesome/fontawesome-svg-core/styles.css";
 // config.autoAddCss = false;
