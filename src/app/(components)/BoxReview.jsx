@@ -7,7 +7,7 @@ const SingleReview = ({ review_id }) => {
   const router = useRouter();
   const getData = async (id) => {
     try {
-      const res = await fetch(`http://localhost:3000/api/review/${id}`, {
+      const res = await fetch(`${process.env.VERCEL_URL}/api/review/${id}`, {
         cache: "no-store",
       });
       if (!res.ok) {
