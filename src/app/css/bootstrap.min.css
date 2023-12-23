@@ -4030,6 +4030,7 @@ fieldset:disabled .btn {
   background-clip: border-box;
   border: 2px solid rgba(0, 0, 0, 0.125);
   border-radius: 8px;
+  margin-left: 2px;
 }
 .card > hr {
   margin-right: 0;
@@ -4055,7 +4056,8 @@ fieldset:disabled .btn {
 }
 .card-body {
   flex: 1 1 auto;
-  padding: 2rem 2rem;
+  padding: 1rem 1rem;
+  
 }
 .card-title {
   margin-bottom: 0.5rem;
@@ -5043,6 +5045,7 @@ fieldset:disabled .btn {
   position: relative;
   flex: 1 1 auto;
   padding: 1rem;
+  background-color: "white";
 }
 .modal-footer {
   display: flex;
@@ -6237,7 +6240,7 @@ fieldset:disabled .btn {
   gap: 1rem !important;
 }
 .gap-4 {
-  gap: 1.5rem !important;
+  gap: 0.5rem !important;
 }
 .gap-5 {
   gap: 3rem !important;
@@ -6628,6 +6631,7 @@ fieldset:disabled .btn {
 }
 .p-5 {
   padding: 3rem !important;
+  
 }
 .px-0 {
   padding-right: 0 !important;

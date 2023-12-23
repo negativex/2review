@@ -4,6 +4,7 @@ import Nav from "./(components)/nav";
 import Footer from "./(components)/footer";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import "@nextui-org/react";
 config.autoAddCss = false;
 const mont = Montserrat({ subsets: ["latin"] });
 

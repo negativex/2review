@@ -6,7 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHandPointUp,
   faExclamation,
+  faHeart,
 } from "@fortawesome/free-solid-svg-icons";
+import { NextUIProvider } from "@nextui-org/react";
 import "../css/nav.css";
 import "../css/bootstrap.min.css";
 import "../css/login.css";
@@ -14,9 +16,11 @@ import "../css/button.css";
 import "../css/input.css";
 import "../css/buttonLogin.css";
 import { Modal } from "reactstrap";
+import { Checkbox } from "@nextui-org/checkbox";
 import { MDBCheckbox } from "mdb-react-ui-kit";
 import { auth, db } from "../js/firebase.js";
 import { ref, set, update } from "firebase/database";
+import "../css/checkbox.css";
 import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
@@ -63,7 +67,7 @@ const Nav = () => {
     )
       .then((userCredential) => {
         const user = userCredential.user;
-        set(ref(db, "users/" + registerInformation.name +'/'), {
+        set(ref(db, "users/" + registerInformation.name + "/"), {
           userName: registerInformation.name,
           Email: registerInformation.email,
         });
@@ -72,18 +76,18 @@ const Nav = () => {
   };
 
   const handleSignIn = () => {
-    signInWithEmailAndPassword(auth, email,  password)
+    signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
         const data = new Date();
-        update(ref(db, "users/" + name +'/'), {
+        update(ref(db, "users/" + name + "/"), {
           name: name,
           lastLogin: data,
         });
 
         // navigate("/homepage");
       })
-      .catch((err) => alert(registerInformation.name ));
+      .catch((err) => alert(registerInformation.name));
   };
 
   return (
@@ -145,7 +149,7 @@ const Nav = () => {
 
             <div className="navbar-collapse">
               <div className="navbar-nav mx-auto">
-                <a href="/login" className="nav-item nav-link active">
+                <a href="/home" className="nav-item nav-link active">
                   Phim Mới
                 </a>
                 <a href="/" className="nav-item nav-link">
@@ -201,17 +205,18 @@ const Nav = () => {
                   isOpen={modalOpen}
                   data-toggle="modal"
                   show={modalShow}
+
                   // className="modal-backdrop"
                 >
                   <div className=" modal-body container" id="exampleModalLabel">
                     <div fluid className="my-5 row">
-                      <div className="g-1 align-items-center row my-0 col">
-                        <div className="col">
+                      <div className="g-1 align-items-center row my-0 col ">
+                        <div className="col" col="6">
                           <div
                             className="card my-5 cascading-right"
                             style={{
                               background: "hsla(0, 0%, 100%, 0.55)",
-                              backdropFilter: "blur(30px)",
+                              backdropFilter: "blur(20px)",
                             }}
                           >
                             <div className=" card-body p-5 shadow-5 text-center">
@@ -284,15 +289,29 @@ const Nav = () => {
                                 }
                               />
 
-                              <div className="d-flex">
-                                <MDBCheckbox
-                                  name="flexCheck"
-                                  value=""
-                                  id="flexCheckDefault"
-                                />
-                                <p style={{ color: "black", paddingLeft: 5 }}>
-                                  Đồng ý với điều khoản
-                                </p>
+                              <div
+                                className="d-flex gap-4"
+                                style={{ color: "#777777", alignSelf:"center" }}
+                              >
+                                <label class="container_cb">
+                                  <input type="checkbox" />
+
+                                  <svg
+                                    viewBox="0 0 64 64"
+                                    height="1.5em"
+                                    width="1.5em"
+                                  >
+                                    <path
+                                      d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
+                                      pathLength="575.0541381835938"
+                                      className="path_cb"
+                                    >
+                                      {" "}
+                                    </path>
+                                  </svg>
+                                </label>
+                                Bạn đồng ý với Điều Khoản và Chính Sách chúng
+                                tôi
                               </div>
 
                               <button
@@ -382,7 +401,10 @@ const Nav = () => {
                                 required=""
                               />
 
-                              <button className="button type2 " onClick={handleSignIn}></button>
+                              <button
+                                className="button type2 "
+                                onClick={handleSignIn}
+                              ></button>
 
                               <div className="text-center">
                                 <button
@@ -391,7 +413,6 @@ const Nav = () => {
                                   onClick={() => {
                                     setModalOpen(!modalOpen);
                                     setModalOpenChild(false);
-                                    
                                   }}
                                 >
                                   Bạn chưa có tài khoản??
