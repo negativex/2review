@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-// import Carousel from "../(components)/carousel";
+import YtTrailer from "../(components)/LandingPageTrailer";
 import ReviewCarousel from "../(components)/carousel2";
 import HotCarousel from "../(components)/carousel1";
 const OPTIONS = { slidesToScroll: "auto", containScroll: "trimSnaps" };
@@ -15,15 +15,18 @@ const landingPage = () => {
           <Image
             href="/"
             src="/icon_banner/banner thong bao.png"
-            width={1440}
-            height={1440}
+            width={2560}
+            height={2560}
             alt="banner thong bao"
+            priority={true}
           />
         </Link>
       </div>
       <div className="mt-5 ml-20">
         <div className="flex flex-row items-center">
-          <p className="flex-1 text-base font-semibold">Mới Nhất Từ 2Review!</p>
+          <p className="flex-1 xl:text-xl font-semibold lg:text-sm 2xl:text-3xl">
+            Mới Nhất Từ 2Review!
+          </p>
           {/* <div className="flex flex-row mr-20 w-27">
             <Image
               href="/"
@@ -68,24 +71,9 @@ const landingPage = () => {
           </div>
         </div> */}
         <div className="flex flex-row items-center mt-5">
-          <p className="flex-1 text-base font-semibold">Đang Hot Mùa Này!</p>
-          {/* <div className="flex flex-row mr-20 w-27">
-            <Image
-              href="/"
-              src="/Chevron double right.svg"
-              width={27}
-              height={27}
-              alt="Chevron double right"
-            ></Image>
-            <Image
-              className="ml-1 rotate-180"
-              href="/"
-              src="/Chevron double right.svg"
-              width={27}
-              height={27}
-              alt="Chevron double right"
-            ></Image>
-          </div> */}
+          <p className="flex-1 xl:text-xl font-semibold lg:text-sm 2xl:text-3xl">
+            Đang Hot Mùa Này!
+          </p>
         </div>
         <div className="relative flex py-3 mr-20 items-center">
           <div className="flex-grow border-t border-gray-400"></div>
@@ -95,31 +83,34 @@ const landingPage = () => {
             <ReviewCarousel slides={SLIDES} options={OPTIONS} />
           </section>
         </div>
-        <p className="flex-1 text-base font-semibold mt-3">2Review Phán!!</p>
-        <div className="relative flex py-3 mr-20 items-center">
-          <div className="flex-grow border-t border-gray-400"></div>
-        </div>
-        <div className="relative flex mr-20">
-          <section className="landing__carousel">
-            <ReviewCarousel slides={SLIDES} options={OPTIONS} />
-          </section>
-        </div>
-      </div>
-      <div className="flex justify-center items-center mt-5">
-        <Image
-          href="/"
-          src="/icon_banner/banner cach danh gia.png"
-          width={1800}
-          height={1200}
-          alt="banner cach danh gia"
-        />
-      </div>
-      <div className="mt5 ml-20">
-        <p className="flex-1 text-base font-semibold mt-3">
+        <p className="flex-1 xl:text-xl font-semibold mt-5 lg:text-sm 2xl:mt-10 2xl:text-3xl">
           Trailer Phim Mới!!
         </p>
         <div className="relative flex py-3 mr-20 items-center">
           <div className="flex-grow border-t border-gray-400"></div>
+        </div>
+        <YtTrailer />
+      </div>
+      <div className="flex justify-center items-center mt-5 2xl:mt-10 2xl:w-full">
+        <Image
+          href="/"
+          src="/icon_banner/banner cach danh gia.png"
+          width={2560}
+          height={2560}
+          alt="banner cach danh gia"
+        />
+      </div>
+      <div className="mt5 ml-20">
+        <p className="flex-1 xl:text-xl font-semibold mt-3 lg:text-sm 2xl:text-3xl">
+          2Review Phán!!
+        </p>
+        <div className="relative flex py-3 mr-20 items-center">
+          <div className="flex-grow border-t border-gray-400"></div>
+        </div>
+        <div className="relative flex mr-20 mb-5">
+          <section className="landing__carousel">
+            <ReviewCarousel slides={SLIDES} options={OPTIONS} />
+          </section>
         </div>
       </div>
     </header>

@@ -28,8 +28,12 @@ const nextConfig = {
     // sets the Content-Disposition header (inline or attachment)
     contentDispositionType: "inline",
     // limit of 50 objects
-    remotePatterns: [],
-    // when true, every image will be unoptimized
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
     unoptimized: false,
   },
 };

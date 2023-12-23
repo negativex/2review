@@ -1,5 +1,17 @@
-const page = () => {
-  return <div>ds</div>;
+"use client";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+const Page = () => {
+  const router = useRouter();
+  useEffect(() => {
+    const handleLoad = () => {
+      router.refresh();
+      router.push("/home");
+    };
+    handleLoad();
+  });
+  return <div>Loading...</div>;
 };
 
-export default page;
+export default Page;
