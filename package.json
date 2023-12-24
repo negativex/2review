@@ -31,6 +31,7 @@
     "font-awesome": "^4.7.0",
     "framer-motion": "^10.16.14",
     "mdb-react-ui-kit": "^7.0.0",
+    "mongo": "^0.1.0",
     "mongodb": "^6.3.0",
     "mongoose": "^8.0.3",
     "next": "^14.0.3",

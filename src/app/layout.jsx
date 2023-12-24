@@ -1,10 +1,10 @@
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-// import Nav from "./(components)/Nav";
-// import Footer from "./(components)/footer";
-// import { config } from "@fortawesome/fontawesome-svg-core";
-// import "@fortawesome/fontawesome-svg-core/styles.css";
-// config.autoAddCss = false;
+import Nav from "./(components)/nav";
+import Footer from "./(components)/footer";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
 const mont = Montserrat({ subsets: ["latin"] });
 
 export const metadata = {
@@ -16,12 +16,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={mont.className}>
         <div className="flex flex-col h-full max-h-full">
-          {/* <div className="bg-nav">
+          <div className="bg-nav">
             <Nav></Nav>
-          </div> */}
+          </div>
           <div className="flex-grow overflow-y-auto bg-default-text text-black-text">
             {children}
-            {/* <Footer></Footer> */}
+            <Footer></Footer>
           </div>
         </div>
       </body>
