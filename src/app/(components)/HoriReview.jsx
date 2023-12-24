@@ -1,7 +1,7 @@
 // import Link from "next/link";
 
 const getData = async (id) => {
-  const res = await fetch(`https://2review-au5e.vercel.app/api/review/${id}`, {
+  const res = await fetch(`https://2review-k5ku.vercel.app/api/review/${id}`, {
     cache: "no-store",
   });
   if (!res.ok) {

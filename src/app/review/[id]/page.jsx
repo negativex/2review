@@ -16,7 +16,7 @@ const putnewData = {
   adm_count: 0,
 };
 const getData = async (id) => {
-  const res = await fetch(`https://2review-au5e.vercel.app/api/media/${id}`, {
+  const res = await fetch(`https://2review-k5ku.vercel.app/api/media/${id}`, {
     cache: "no-store",
   });
   if (!res.ok) {
@@ -25,7 +25,7 @@ const getData = async (id) => {
   return res.json();
 };
 const putData = async (id) => {
-  const res = await fetch(`https://2review-au5e.vercel.app/api/media/${id}`, {
+  const res = await fetch(`https://2review-k5ku.vercel.app/api/media/${id}`, {
     cache: "no-store",
     method: "PUT",
     headers: {
@@ -39,7 +39,7 @@ const putData = async (id) => {
   return res.json();
 };
 const getAllReviewId = async (id) => {
-  const res = await fetch(`https://2review-au5e.vercel.app/api/reviews/${id}`, {
+  const res = await fetch(`https://2review-k5ku.vercel.app/api/reviews/${id}`, {
     cache: "no-store",
   });
   if (!res.ok) {
