@@ -6,7 +6,7 @@ import Carousel2 from "../(components)/carousel2";
 import Carousel1 from "../(components)/carousel1";
 const OPTIONS = { slidesToScroll: "auto", containScroll: "trimSnaps" };
 const OPTION_HoriCard = {};
-const SLIDE_COUNT = 8;
+const SLIDE_COUNT = 16;
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 const landingPage = () => {
   return (

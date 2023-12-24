@@ -18,7 +18,7 @@ export async function GET() {
         trailer: 1,
       })
       .sort({ adm_score: -1 })
-      .limit(8)
+      .limit(16)
       .toArray();
     return NextResponse.json({ results }, { status: 200 });
   } catch (err) {
