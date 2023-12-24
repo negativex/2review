@@ -1,10 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import YtTrailer from "../(components)/LandingPageTrailer";
-import ReviewCarousel from "../(components)/carousel2";
-import HotCarousel from "../(components)/carousel1";
+import Carousel3 from "../(components)/carousel3";
+import Carousel2 from "../(components)/carousel2";
+import Carousel1 from "../(components)/carousel1";
 const OPTIONS = { slidesToScroll: "auto", containScroll: "trimSnaps" };
-const OPTION2 = {};
+const OPTION_HoriCard = {};
 const SLIDE_COUNT = 12;
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 const landingPage = () => {
@@ -22,7 +23,7 @@ const landingPage = () => {
           />
         </Link>
       </div>
-      <div className="mt-5 ml-20">
+      <div className="mt-5 ml-2 xs:ml-5 lg:ml-20">
         <div className="flex flex-row items-center">
           <p className="flex-1 xl:text-xl font-semibold lg:text-sm 2xl:text-3xl">
             Mới Nhất Từ 2Review!
@@ -50,7 +51,7 @@ const landingPage = () => {
         </div>
         <div className="relative flex mr-20">
           <section className="landing__carousel">
-            <HotCarousel slides={SLIDES} options={OPTION2} />
+            <Carousel1 slides={SLIDES} options={OPTION_HoriCard} />
           </section>
         </div>
         {/* <div className="flex flex-row">
@@ -80,7 +81,7 @@ const landingPage = () => {
         </div>
         <div className="relative flex mr-20">
           <section className="landing__carousel">
-            <ReviewCarousel slides={SLIDES} options={OPTIONS} />
+            <Carousel2 slides={SLIDES} options={OPTIONS} />
           </section>
         </div>
         <p className="flex-1 xl:text-xl font-semibold mt-5 lg:text-sm 2xl:mt-10 2xl:text-3xl">
@@ -100,16 +101,16 @@ const landingPage = () => {
           alt="banner cach danh gia"
         />
       </div>
-      <div className="mt5 ml-20">
+      <div className="mt5 ml-2 xs:ml-5 lg:ml-20">
         <p className="flex-1 xl:text-xl font-semibold mt-3 lg:text-sm 2xl:text-3xl">
-          2Review Phán!!
+          Đứng đầu trên 2Review!!
         </p>
         <div className="relative flex py-3 mr-20 items-center">
           <div className="flex-grow border-t border-gray-400"></div>
         </div>
         <div className="relative flex mr-20 mb-5">
           <section className="landing__carousel">
-            <ReviewCarousel slides={SLIDES} options={OPTIONS} />
+            <Carousel3 slides={SLIDES} options={OPTIONS} />
           </section>
         </div>
       </div>

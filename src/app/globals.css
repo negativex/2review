@@ -42,7 +42,7 @@ body {
 .embla_hot {
   --slide-spacing: 1rem;
   --slide-size: 16%;
-  --slide-height: 15rem;
+  --slide-height: 16rem;
   /* padding: 1.6rem; */
 }
 .embla__container_hot {
@@ -50,6 +50,26 @@ body {
   display: flex;
   touch-action: pan-y;
   margin-left: calc(var(--slide-spacing) * -1);
+}
+.embla_3 {
+  --slide-spacing: 1rem;
+  --slide-size: 16%;
+  --slide-height: 15rem;
+  /* padding: 1.6rem; */
+}
+@media (max-width: 1024px) {
+  .embla_3 {
+    --slide-spacing: 1rem;
+    --slide-size: 25%;
+    --slide-height: 15rem;
+    /* padding: 1.6rem; */
+  }
+  .embla_hot {
+    --slide-spacing: 1rem;
+    --slide-size: 16%;
+    --slide-height: 12rem;
+    /* padding: 1.6rem; */
+  }
 }
 .embla__class-names {
   transition: opacity 0.2s ease-in-out;

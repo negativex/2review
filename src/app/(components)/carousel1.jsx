@@ -42,7 +42,7 @@ const HotCarousel = (props) => {
           <div className="embla__container">
             {slides.map((index) => (
               <div
-                className="flex-col flex-[0_0_var(--slide-size)] min-w-0 pl-[var(--slide-spacing)] relative embla__class-name"
+                className="flex-col flex-[0_0_var(--slide-size)] min-w-0 pl-[var(--slide-spacing)] relative embla__class-name cursor-pointer"
                 key={index}
                 onClick={() =>
                   handleItemClick(data.results[index % data.results.length]._id)
@@ -55,7 +55,7 @@ const HotCarousel = (props) => {
                 >
                   <div className=" absolute inset-x-1 xl:inset-x-2 2xl:inset-x-4 top-1 xl:top-2 2xl:top-4 ">
                     <Image
-                      className="rounded-lg object-cover object-top h-28 xl:h-32 2xl:h-56 w-55"
+                      className="rounded-lg object-cover object-top h-28 xl:h-32 2xl:h-56 xl:w-55"
                       src={data.results[index % data.results.length].img}
                       alt="Your alt text"
                       width={1000}
