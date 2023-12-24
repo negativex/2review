@@ -2,6 +2,7 @@ import { connectToDatabase } from "../../mongo/mongodb";
 import { NextResponse } from "next/server";
 export async function GET() {
   const { database } = await connectToDatabase();
+  const collection = database.collection("media");
   try {
     const results = await database
       .collection("media")
@@ -16,6 +17,7 @@ export async function GET() {
         trailer: 1,
       })
       // .sort({ published_on: -1 })
+      .sort({ published_on: -1 })
       .limit(16)
       .toArray();
     return NextResponse.json({ results }, { status: 200 });
