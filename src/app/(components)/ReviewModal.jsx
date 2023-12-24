@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 const ReviewModal = (this_media_id) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const md_id = this_media_id.this_media_id;
@@ -45,11 +46,13 @@ const ReviewModal = (this_media_id) => {
   const handleCloseModal = () => {
     setModalOpen(false);
   };
+  const router = useRouter();
   const handleSubmit = () => {
     if (postData.title.length > 3 && postData.body.length > 10) {
       post();
     }
     handleCloseModal();
+    router.refresh();
   };
   return (
     <div>

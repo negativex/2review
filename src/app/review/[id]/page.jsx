@@ -182,7 +182,7 @@ export default async function ReviewPage({ params }) {
           <div className="flex-grow border-t border-gray-400"></div>
         </div>
         {/* đoan này là đoạn review của 2Review */}
-        <div className="flex flex-row items-center overflow-scroll">
+        <div className="flex flex-row items-center overflow-x-scroll">
           {adm_ids.length > 3 ? (
             adm_ids
               .slice(-4)
@@ -204,7 +204,7 @@ export default async function ReviewPage({ params }) {
           <div className="flex-grow border-t border-gray-400"></div>
         </div>
         {/* đoan này là đoạn review của 2Review */}
-        <div className="flex flex-row items-center overflow-scroll">
+        <div className="flex flex-row items-center overflow-x-scroll">
           {usr_ids.length > 3 ? (
             usr_ids
               .slice(-4)
