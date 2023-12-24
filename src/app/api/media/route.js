@@ -1,7 +1,5 @@
 import { connectToDatabase } from "../../mongo/mongodb";
-import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
-
 export async function GET() {
   const { database } = await connectToDatabase();
   try {
@@ -13,12 +11,12 @@ export async function GET() {
         title: 1,
         adm_score: 1,
         img_sm: 1,
-        tags: 1,
+        // tags: 1,
         img: 1,
         trailer: 1,
       })
       // .sort({ published_on: -1 })
-      // .limit(12)
+      .limit(8)
       .toArray();
     return NextResponse.json({ results }, { status: 200 });
   } catch (err) {
