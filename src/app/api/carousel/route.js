@@ -1,10 +1,7 @@
 import { connectToDatabase } from "../../mongo/mongodb";
-import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
-
 export async function GET() {
   const { database } = await connectToDatabase();
-  const collection = database.collection("media");
   try {
     const results = await database
       .collection("media")
@@ -27,16 +24,23 @@ export async function GET() {
   }
 }
 
-// export async function POST(req) {
-//   try {
-//     const body = await req.json();
-//     const mediaData = body.formData;
+export async function POST(req) {
+  const { database } = await connectToDatabase();
+  try {
+    const data = await req.json();
+    const score = parseInt(data.postData.score, 10);
+    const result = await database.collection("review").insertOne({
+      title: data.postData.title,
+      body: data.postData.body,
+      score: score,
+      media_id: data.postData.media_id,
+      admin_role: false,
+      published_on: data.postData.published_on,
+    });
 
-//     await Media.create(mediaData);
-
-//     return NextResponse.json({ message: "Media added" }, { status: 201 });
-//   } catch (err) {
-//     console.log(err);
-//     return NextResponse.json({ message: "Error", err }, { status: 500 });
-//   }
-// }
+    return NextResponse.json({ message: "data Created" }, { status: 201 });
+  } catch (error) {
+    console.log(error);
+    return NextResponse.json({ message: "Error", error }, { status: 500 });
+  }
+}
