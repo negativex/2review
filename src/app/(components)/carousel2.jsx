@@ -12,7 +12,9 @@ const CarouselReview = (props) => {
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
-      fetch(`/api/media`)
+      fetch(`/api/media`, {
+        cache: "no-store",
+      })
         .then((res) => res.json())
         .then((data) => {
           setData(data);

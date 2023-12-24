@@ -6,7 +6,6 @@ const Page = () => {
   const router = useRouter();
   useEffect(() => {
     const handleLoad = () => {
-      router.refresh();
       router.push("/home");
     };
     handleLoad();
