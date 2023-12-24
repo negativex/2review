@@ -42,7 +42,7 @@ const CarouselReview = (props) => {
   if (isLoading) return <h1>Loading...</h1>;
   else
     return (
-      <div className="embla_hot">
+      <div className="embla_3">
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="embla__container_hot">
             {slides.map((index) => (
@@ -57,16 +57,16 @@ const CarouselReview = (props) => {
                   // href={`/review/${
                   //   data.results[index % data.results.length]._id
                   // }`}
-                  className="h-[var(--slide-height)] 2xl:h-4/5 object-cover object-top rounded-md mb-2 2xl:mb-10"
+                  className=" h-24 sm:h-[var(--slide-height)] 2xl:h-4/5 object-cover object-top rounded-md mb-2 2xl:mb-10"
                   src={`${getImage(
                     data.results[index % data.results.length].img_sm
                   )}`}
                   alt="Your alt text"
-                  width={500}
-                  height={500}
+                  width={1000}
+                  height={1000}
                 />
                 <div className="items-center justify-end py-2">
-                  <p className="w-2/3 max-h-10 xl:max-h-20 2xl:max-h-40 text-sm 2xl:text-4xl xl:text-xl lg:text-base font-black">
+                  <p className="w-2/3 max-h-10 xl:max-h-20 2xl:max-h-40 text-xs 2xl:text-4xl xl:text-xl lg:text-base font-black">
                     {data.results[index % data.results.length].title}
                   </p>
                   <div

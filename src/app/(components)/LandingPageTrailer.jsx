@@ -69,7 +69,7 @@ const YouTubeVideo = () => {
           </div>
         </div>
         <div
-          className="flex flex-row items-center"
+          className="hidden xl:flex flex-row items-center"
           onClick={() => handleItemClick("MoM0LeHbmzA")}
         >
           <Image
@@ -85,7 +85,7 @@ const YouTubeVideo = () => {
           </div>
         </div>
         <div
-          className="flex-row items-center hidden xl:flex"
+          className="hidden flex-row items-center xs:flex"
           onClick={() => handleItemClick("GJ62bnEoUxg")}
         >
           <Image

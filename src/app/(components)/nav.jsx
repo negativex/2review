@@ -1,436 +1,412 @@
-// "use client";
+"use client";
 // import Link from "next/link";
-// import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 // import Image from "next/image";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-//   faHandPointUp,
-//   faExclamation,
-// } from "@fortawesome/free-solid-svg-icons";
-// import "../css/nav.css";
-// import "../css/bootstrap.min.css";
-// import "../css/login.css";
-// import "../css/button.css";
-// import "../css/input.css";
-// import "../css/buttonLogin.css";
-// import { Modal } from "reactstrap";
-// import { MDBCheckbox } from "mdb-react-ui-kit";
-// import { auth, db } from "../js/firebase.js";
-// import { ref, set, update } from "firebase/database";
-// import {
-//   signInWithEmailAndPassword,
-//   onAuthStateChanged,
-//   createUserWithEmailAndPassword,
-// } from "firebase/auth";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHandPointUp,
+  faExclamation,
+} from "@fortawesome/free-solid-svg-icons";
+import "../css/nav.css";
+import "../css/bootstrap.min.css";
+import "../css/login.css";
+import "../css/button.css";
+import "../css/input.css";
+import "../css/buttonLogin.css";
+import { Modal } from "reactstrap";
+import { MDBCheckbox } from "mdb-react-ui-kit";
+import { auth, db } from "../js/firebase.js";
+import { ref, set, update } from "firebase/database";
+import {
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 
-// const Nav = () => {
-//   const [modalShow, setModalShow] = React.useState(false);
-//   const [modalOpen, setModalOpen] = React.useState(false);
+import Link from "next/link";
+import Image from "next/image";
+const Nav = () => {
+  const [modalShow, setModalShow] = React.useState(false);
+  const [modalOpen, setModalOpen] = React.useState(false);
 
-//   const [modalShowChild, setModalShowChild] = React.useState(false);
-//   const [modalOpenChild, setModalOpenChild] = React.useState(false);
+  const [modalShowChild, setModalShowChild] = React.useState(false);
+  const [modalOpenChild, setModalOpenChild] = React.useState(false);
 
-//   const [email, setEmail] = useState("");
-//   const handleEmailChange = (e) => {
-//     setEmail(e.target.value);
-//   };
+  const [email, setEmail] = useState("");
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
 
-//   const [password, setPassword] = useState("");
-//   const handlePasswordChange = (e) => {
-//     setPassword(e.target.value);
-//   };
+  const [password, setPassword] = useState("");
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
 
-//   const [name, setName] = useState("");
-//   const handleNameChange = (e) => {
-//     setName(e.target.value);
-//   };
+  const [name, setName] = useState("");
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
 
-//   const [registerInformation, setRegisterInformation] = useState({
-//     name: "",
-//     email: "",
-//     password: "",
-//     confirmPassword: "",
-//   });
-//   const handleRegister = () => {
-//     if (registerInformation.password !== registerInformation.confirmPassword) {
-//       alert("Mật khẩu chưa trùng nè");
-//       return;
-//     }
-//     createUserWithEmailAndPassword(
-//       auth,
-//       registerInformation.email,
-//       registerInformation.password
-//     )
-//       .then((userCredential) => {
-//         const user = userCredential.user;
-//         set(ref(db, "users/" + registerInformation.name + "/"), {
-//           userName: registerInformation.name,
-//           Email: registerInformation.email,
-//         });
-//       })
-//       .catch((err) => alert(err.message));
-//   };
+  const [registerInformation, setRegisterInformation] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const handleRegister = () => {
+    if (registerInformation.password !== registerInformation.confirmPassword) {
+      alert("Mật khẩu chưa trùng nè");
+      return;
+    }
+    createUserWithEmailAndPassword(
+      auth,
+      registerInformation.email,
+      registerInformation.password
+    )
+      .then((userCredential) => {
+        const user = userCredential.user;
+        set(ref(db, "users/" + registerInformation.name + "/"), {
+          userName: registerInformation.name,
+          Email: registerInformation.email,
+        });
+      })
+      .catch((err) => alert(err.message));
+  };
 
-//   const handleSignIn = () => {
-//     signInWithEmailAndPassword(auth, email, password)
-//       .then((userCredential) => {
-//         const user = userCredential.user;
-//         const data = new Date();
-//         update(ref(db, "users/" + name + "/"), {
-//           name: name,
-//           lastLogin: data,
-//         });
+  const handleSignIn = () => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        const data = new Date();
+        update(ref(db, "users/" + name + "/"), {
+          name: name,
+          lastLogin: data,
+        });
 
-//         // navigate("/homepage");
-//       })
-//       .catch((err) => alert(registerInformation.name));
-//   };
+        // navigate("/homepage");
+      })
+      .catch((err) => alert(registerInformation.name));
+  };
+  return (
+    <header className="flex-col">
+      <div className="flex justify-center py-1 bg-page">
+        <p className="text-xs 2xl:text-xl font-semibold">Tham gia</p>
+        <Link
+          href="/"
+          className="text-xs 2xl:text-xl cursor-pointer font-semibold text-yellow"
+        >
+          &nbsp;hội viên&nbsp;
+        </Link>
+        <p className="text-xs 2xl:text-xl font-semibold">ngay hôm nay!!!</p>
+      </div>
+      <div className="flex flex-col gap-3 sm:flex-row sm:gap-0 ml-3 sm:ml-0 py-3 sm:items-center justify-center bg-nav">
+        <Link href="/">
+          <Image
+            href="/"
+            className="flex-none w-20 ml-5 xl:ml-20 2xl:w-32 cursor-pointer"
+            src="/logo2.svg"
+            width={300}
+            height={300}
+            alt="Logo"
+          />
+        </Link>
+        <nav className="grow">
+          <ul className="flex flex-col ml-3 sm:ml-0 sm:flex-row sm:items-center justify-center gap-[5vw] ">
+            <li>
+              <Link
+                href="/"
+                className=" xs:text-xs lg:text-base 2xl:text-2xl text-black-text"
+              >
+                Phim Mới
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/home"
+                className="xs:text-xs lg:text-base 2xl:text-2xl text-black-text"
+              >
+                Top 100
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/home"
+                className="xs:text-xs lg:text-base 2xl:text-2xl	text-black-text"
+              >
+                Games
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/home"
+                className="xs:text-xs lg:text-base 2xl:text-2xl	text-black-text"
+              >
+                Animes
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/home"
+                className="xs:text-xs lg:text-base 2xl:text-2xl	text-black-text"
+              >
+                Hot Trend
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <div className="flex flex-row w-8 xl:w-12 2xl:w-20 flex-shrink-0 mr-2 sm:mr-5 lg:mr-20 cursor-pointer justify-center gap-[1vw] items-center">
+          <Link href="/" className="">
+            <Image
+              src="/icon_banner/search-outline.svg"
+              width={32}
+              height={32}
+              alt="Logo"
+            ></Image>
+          </Link>
+          <Link href="/" className="">
+            <Image
+              onClick={() => setModalOpen(!modalOpen)}
+              src="/icon_banner/person-outline.svg"
+              width={32}
+              height={32}
+              alt="Logo"
+            ></Image>
+          </Link>
+        </div>
+      </div>
+      <Modal
+        size="xl"
+        toggle={() => setModalOpen(!modalOpen)}
+        isOpen={modalOpen}
+        data-toggle="modal"
+        show={modalShow}
+        // className="modal-backdrop"
+      >
+        <div className=" modal-body container" id="exampleModalLabel">
+          <div fluid className="my-5 row">
+            <div className="g-1 align-items-center row my-0 col">
+              <div className="col">
+                <div
+                  className="card my-5 cascading-right"
+                  style={{
+                    background: "hsla(0, 0%, 100%, 0.55)",
+                    backdropFilter: "blur(30px)",
+                  }}
+                >
+                  <div className=" card-body p-5 shadow-5 text-center">
+                    <h1 className="fw-bold mb-5 fs-2">
+                      Đăng Ký Ngay{" "}
+                      <FontAwesomeIcon
+                        icon={faExclamation}
+                        shake
+                        style={{ color: "#000000" }}
+                      />
+                    </h1>
+                    <div className="row">
+                      <div className="col" col="6">
+                        <input
+                          placeholder="Tên"
+                          type="text"
+                          className="input"
+                          required=""
+                          value={registerInformation.name}
+                          onChange={(e) =>
+                            setRegisterInformation({
+                              ...registerInformation,
+                              name: e.target.value,
+                            })
+                          }
+                        />
+                      </div>
 
-//   return (
-//     <header>
-//       <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-//       <meta content="" name="keywords" />
-//       <meta content="" name="description" />
-//       <link
-//         href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap"
-//         rel="stylesheet"
-//       />
+                      <div className="col" col="6">
+                        <input
+                          placeholder="Gmail"
+                          type="mail"
+                          className="input mb-4"
+                          required=""
+                          value={registerInformation.email}
+                          onChange={(e) =>
+                            setRegisterInformation({
+                              ...registerInformation,
+                              email: e.target.value,
+                            })
+                          }
+                        />
+                      </div>
+                    </div>
 
-//       {/* <!-- Icon Font Stylesheet --> */}
-//       <link
-//         rel="stylesheet"
-//         href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-//       />
-//       <link
-//         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-//         rel="stylesheet"
-//       />
+                    <input
+                      placeholder="Mật khẩu"
+                      type="password"
+                      className="input mb-4"
+                      required=""
+                      value={registerInformation.password}
+                      onChange={(e) =>
+                        setRegisterInformation({
+                          ...registerInformation,
+                          password: e.target.value,
+                        })
+                      }
+                    />
+                    <input
+                      placeholder="Nhập lại mật khẩu"
+                      type="password"
+                      className="input mb-4"
+                      required=""
+                      value={registerInformation.confirmPassword}
+                      onChange={(e) =>
+                        setRegisterInformation({
+                          ...registerInformation,
+                          confirmPassword: e.target.value,
+                        })
+                      }
+                    />
 
-//       <link
-//         href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap"
-//         rel="stylesheet"
-//       />
-//       <link
-//         rel="stylesheet"
-//         href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-//       />
-//       <link
-//         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-//         rel="stylesheet"
-//       />
+                    <div className="d-flex">
+                      <div className="checkbox" style={{ color: "black" }}>
+                        <input
+                          id="checkbox1"
+                          className="checkbox__input"
+                          type="checkbox"
+                        />
+                        <label
+                          for="checkbox1"
+                          className="checkbox__label"
+                          style={{ marginLeft: 10 }}
+                        >
+                          <span className="checkbox__custom"></span>
+                          Đồng ý với điều khoản của chúng tôi
+                        </label>
+                      </div>
+                    </div>
 
-//       {/* <div className="flex justify-center bg-page" style={{color:"black"}}>
-//         <p className="text-xs 4xl:text-xl font-semibold">Tham gia</p>
-//         <Link
-//           href="/"
-//           className="text-xs font-semibold"
-//         >
-//           &nbsp;hội viên&nbsp;
-//         </Link>
-//         <p className="text-xs 2xl:text-xl font-semibold">ngay hôm nay!!!</p>
-//       </div> */}
+                    <button
+                      className="button type1 "
+                      onClick={handleRegister}
+                    ></button>
 
-//       <div class="container-fluid nav-bar">
-//         <div class="container">
-//           <nav class="navbar navbar-light navbar-expand-lg py-4">
-//             <a href="/" class="navbar-brand">
-//               <Image
-//                 href="/"
-//                 src="/logo2.svg"
-//                 width={150}
-//                 height={150}
-//                 alt="Logo"
-//               />
-//             </a>
+                    <div className="text-center">
+                      <button
+                        style={{ color: "black" }}
+                        className="mt-n4 "
+                        onClick={() => {
+                          setModalOpenChild(!modalOpenChild);
+                          setModalOpen(false);
+                        }}
+                      >
+                        Bạn đã có tài khoản?
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-//             <div className="navbar-collapse">
-//               <div className="navbar-nav mx-auto">
-//                 <a href="/login" className="nav-item nav-link active">
-//                   Phim Mới
-//                 </a>
-//                 <a href="/" className="nav-item nav-link">
-//                   Top 100
-//                 </a>
-//                 <a href="service.html" class="nav-item nav-link">
-//                   Games
-//                 </a>
-//                 <a href="event.html" class="nav-item nav-link">
-//                   Animes
-//                 </a>
-//                 <a href="menu.html" class="nav-item nav-link">
-//                   Hot Trend
-//                 </a>
-//                 <div class="nav-item dropdown">
-//                   <a href="#" class="nav-link " data-bs-toggle="dropdown">
-//                     Pages
-//                     <FontAwesomeIcon
-//                       icon={faHandPointUp}
-//                       rotation={180}
-//                       style={{ marginLeft: 5 }}
-//                     />
-//                   </a>
-//                   <div class="dropdown-menu bg-light">
-//                     <a href="book.html" class="dropdown-item">
-//                       Booking
-//                     </a>
-//                     <a href="blog.html" class="dropdown-item">
-//                       Our Blog
-//                     </a>
-//                     <a href="team.html" class="dropdown-item">
-//                       Our Team
-//                     </a>
-//                     <a href="testimonial.html" class="dropdown-item">
-//                       Testimonial
-//                     </a>
-//                     <a href="404.html" class="dropdown-item">
-//                       404 Page
-//                     </a>
-//                   </div>
-//                 </div>
-//                 <a href="contact.html" class="nav-item nav-link">
-//                   Contact
-//                 </a>
-//               </div>
-//               <a class="btn py-2 px-4 d-none d-xl-inline-block rounded-pill">
-//                 <button onClick={() => setModalOpen(!modalOpen)}>
-//                   Login/Register
-//                 </button>
-//                 <Modal
-//                   size="xl"
-//                   toggle={() => setModalOpen(!modalOpen)}
-//                   isOpen={modalOpen}
-//                   data-toggle="modal"
-//                   show={modalShow}
-//                   // className="modal-backdrop"
-//                 >
-//                   <div className=" modal-body container" id="exampleModalLabel">
-//                     <div fluid className="my-5 row">
-//                       <div className="g-1 align-items-center row my-0 col">
-//                         <div className="col">
-//                           <div
-//                             className="card my-5 cascading-right"
-//                             style={{
-//                               background: "hsla(0, 0%, 100%, 0.55)",
-//                               backdropFilter: "blur(30px)",
-//                             }}
-//                           >
-//                             <div className=" card-body p-5 shadow-5 text-center">
-//                               <h1 className="fw-bold mb-5 fs-2">
-//                                 Đăng Ký Ngay{" "}
-//                                 <FontAwesomeIcon
-//                                   icon={faExclamation}
-//                                   shake
-//                                   style={{ color: "#000000" }}
-//                                 />
-//                               </h1>
-//                               <div className="row">
-//                                 <div className="col" col="6">
-//                                   <input
-//                                     placeholder="Tên"
-//                                     type="text"
-//                                     class="input"
-//                                     required=""
-//                                     value={registerInformation.name}
-//                                     onChange={(e) =>
-//                                       setRegisterInformation({
-//                                         ...registerInformation,
-//                                         name: e.target.value,
-//                                       })
-//                                     }
-//                                   />
-//                                 </div>
+              <div className="col" col="6">
+                <Image
+                  href="/"
+                  src="/movie-posters.png"
+                  height={600}
+                  width={600}
+                  className="w-100 rounded-4 shadow-4"
+                  alt=""
+                  fluid
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </Modal>
 
-//                                 <div className="col" col="6">
-//                                   <input
-//                                     placeholder="Gmail"
-//                                     type="mail"
-//                                     class="input mb-4"
-//                                     required=""
-//                                     value={registerInformation.email}
-//                                     onChange={(e) =>
-//                                       setRegisterInformation({
-//                                         ...registerInformation,
-//                                         email: e.target.value,
-//                                       })
-//                                     }
-//                                   />
-//                                 </div>
-//                               </div>
+      {/* Đăng nhập */}
+      <a className="btn py-2 px-4 d-none d-xl-inline-block rounded-pill">
+        <Modal
+          size="xl"
+          toggle={() => setModalOpenChild(!modalOpenChild)}
+          isOpen={modalOpenChild}
+          show={modalShowChild}
+        >
+          <div className=" modal-body container" id="exampleModalLabel1">
+            <div fluid className="my-5 row">
+              <div className="g-1 align-items-center row my-0 col">
+                <div className="col">
+                  <div
+                    className="card my-5 cascading-right"
+                    style={{
+                      background: "hsla(0, 0%, 100%, 0.55)",
+                      backdropFilter: "blur(30px)",
+                    }}
+                  >
+                    <div className=" card-body p-5 shadow-5 text-center">
+                      <h1 className="fw-bold mb-5 fs-2">
+                        Đăng Nhập Ngay{" "}
+                        <FontAwesomeIcon
+                          icon={faExclamation}
+                          shake
+                          style={{ color: "#000000" }}
+                        />
+                      </h1>
 
-//                               <input
-//                                 placeholder="Mật khẩu"
-//                                 type="password"
-//                                 className="input mb-4"
-//                                 required=""
-//                                 value={registerInformation.password}
-//                                 onChange={(e) =>
-//                                   setRegisterInformation({
-//                                     ...registerInformation,
-//                                     password: e.target.value,
-//                                   })
-//                                 }
-//                               />
-//                               <input
-//                                 placeholder="Nhập lại mật khẩu"
-//                                 type="password"
-//                                 className="input mb-4"
-//                                 required=""
-//                                 value={registerInformation.confirmPassword}
-//                                 onChange={(e) =>
-//                                   setRegisterInformation({
-//                                     ...registerInformation,
-//                                     confirmPassword: e.target.value,
-//                                   })
-//                                 }
-//                               />
+                      <div className="col" col="6">
+                        <input
+                          placeholder="Gmail"
+                          type="email"
+                          onChange={handleEmailChange}
+                          className="input mb-4"
+                          required=""
+                        />
+                      </div>
 
-//                               <div className="d-flex">
-//                                 <MDBCheckbox
-//                                   name="flexCheck"
-//                                   value=""
-//                                   id="flexCheckDefault"
-//                                 />
-//                                 <p style={{ color: "black", paddingLeft: 5 }}>
-//                                   Đồng ý với điều khoản
-//                                 </p>
-//                               </div>
+                      <input
+                        placeholder="Mật khẩu"
+                        type="password"
+                        onChange={handlePasswordChange}
+                        className="input mb-4"
+                        required=""
+                      />
 
-//                               <button
-//                                 className="button type1 "
-//                                 onClick={handleRegister}
-//                               ></button>
+                      <button
+                        className="button type2 "
+                        onClick={() => {
+                          handleSignIn;
+                          setModalOpenChild(false);
+                        }}
+                      ></button>
 
-//                               <div className="text-center">
-//                                 <button
-//                                   style={{ color: "black" }}
-//                                   className="mt-n4 "
-//                                   onClick={() => {
-//                                     setModalOpenChild(!modalOpenChild);
-//                                     setModalOpen(false);
-//                                   }}
-//                                 >
-//                                   Bạn đã có tài khoản?
-//                                 </button>
-//                               </div>
-//                             </div>
-//                           </div>
-//                         </div>
+                      <div className="text-center">
+                        <button
+                          style={{ color: "black" }}
+                          className="mt-n4"
+                          onClick={() => {
+                            setModalOpen(!modalOpen);
+                            setModalOpenChild(false);
+                          }}
+                        >
+                          Bạn chưa có tài khoản??
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-//                         <div className="col" col="6">
-//                           <img
-//                             href="/"
-//                             src="/movie-posters.png"
-//                             height={600}
-//                             width={600}
-//                             class="w-100 rounded-4 shadow-4"
-//                             alt=""
-//                             fluid
-//                           />
-//                         </div>
-//                       </div>
-//                     </div>
-//                   </div>
-//                 </Modal>
-//               </a>
-//               {/* Đăng nhập */}
-//               <a class="btn py-2 px-4 d-none d-xl-inline-block rounded-pill">
-//                 <Modal
-//                   size="xl"
-//                   toggle={() => setModalOpenChild(!modalOpenChild)}
-//                   isOpen={modalOpenChild}
-//                   show={modalShowChild}
-//                 >
-//                   <div
-//                     className=" modal-body container"
-//                     id="exampleModalLabel1"
-//                   >
-//                     <div fluid className="my-5 row">
-//                       <div className="g-1 align-items-center row my-0 col">
-//                         <div className="col">
-//                           <div
-//                             className="card my-5 cascading-right"
-//                             style={{
-//                               background: "hsla(0, 0%, 100%, 0.55)",
-//                               backdropFilter: "blur(30px)",
-//                             }}
-//                           >
-//                             <div className=" card-body p-5 shadow-5 text-center">
-//                               <h1 className="fw-bold mb-5 fs-2">
-//                                 Đăng Nhập Ngay{" "}
-//                                 <FontAwesomeIcon
-//                                   icon={faExclamation}
-//                                   shake
-//                                   style={{ color: "#000000" }}
-//                                 />
-//                               </h1>
+                <div className="col" col="6">
+                  <Image
+                    href="/"
+                    src="/movie-posters.png"
+                    height={600}
+                    width={600}
+                    className="w-100 rounded-4 shadow-4"
+                    alt=""
+                    fluid
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </Modal>
+      </a>
+    </header>
+  );
+};
 
-//                               <div className="col" col="6">
-//                                 <input
-//                                   placeholder="Gmail"
-//                                   type="email"
-//                                   onChange={handleEmailChange}
-//                                   class="input mb-4"
-//                                   required=""
-//                                 />
-//                               </div>
-
-//                               <input
-//                                 placeholder="Mật khẩu"
-//                                 type="password"
-//                                 onChange={handlePasswordChange}
-//                                 className="input mb-4"
-//                                 required=""
-//                               />
-
-//                               <button
-//                                 className="button type2 "
-//                                 onClick={handleSignIn}
-//                               ></button>
-
-//                               <div className="text-center">
-//                                 <button
-//                                   style={{ color: "black" }}
-//                                   className="mt-n4"
-//                                   onClick={() => {
-//                                     setModalOpen(!modalOpen);
-//                                     setModalOpenChild(false);
-//                                   }}
-//                                 >
-//                                   Bạn chưa có tài khoản??
-//                                 </button>
-//                               </div>
-//                             </div>
-//                           </div>
-//                         </div>
-
-//                         <div className="col" col="6">
-//                           <img
-//                             href="/"
-//                             src="/movie-posters.png"
-//                             height={600}
-//                             width={600}
-//                             class="w-100 rounded-4 shadow-4"
-//                             alt=""
-//                             fluid
-//                           />
-//                         </div>
-//                       </div>
-//                     </div>
-//                   </div>
-//                 </Modal>
-//               </a>
-//             </div>
-//           </nav>
-//         </div>
-//       </div>
-
-//       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-//       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-
-//       {/* <!-- Template Javascript --> */}
-//       <script src="../js/main.js"></script>
-//     </header>
-//   );
-// };
-
-// export default Nav;
+export default Nav;

@@ -40,7 +40,7 @@ const AdmReview = async ({ params }) => {
       <div className="relative flex items-center mb-10">
         <div className="flex-grow border-t border-gray-400"></div>
       </div>
-      <div className="flex flex-row ml:5 lg:ml-10 xl:ml-20 2xl:ml-40 items-center">
+      <div className="flex xs:flex-col sm:flex-row ml:5 lg:ml-10 xl:ml-20 2xl:ml-40 items-center">
         <div className="flex basis-1/3 ">
           <Image
             className="rounded-xl w-full object-cover"

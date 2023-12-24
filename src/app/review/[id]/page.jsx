@@ -76,7 +76,7 @@ export default async function ReviewPage({ params }) {
       <div className="relative flex items-center">
         <div className="flex-grow border-t border-gray-400"></div>
       </div>
-      <div className="py-5 2xl:px-64 px-20 rounded-xl">
+      <div className="py-5 2xl:px-64 lg:px-20 xs:px-4 rounded-xl">
         {/* <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl"> */}
         <div className="sm:flex">
           <div className="flex-auto w-full sm:w-1/2 lg:w-2/3 2xl:h-main_img_2xl xl:h-main_img_xl lg:h-main_img_lg md:h-main_img_md sm:h-main_img_sm">
@@ -182,7 +182,7 @@ export default async function ReviewPage({ params }) {
           <div className="flex-grow border-t border-gray-400"></div>
         </div>
         {/* đoan này là đoạn review của 2Review */}
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row items-center overflow-scroll">
           {adm_ids.length > 3 ? (
             adm_ids
               .slice(-4)
@@ -204,7 +204,7 @@ export default async function ReviewPage({ params }) {
           <div className="flex-grow border-t border-gray-400"></div>
         </div>
         {/* đoan này là đoạn review của 2Review */}
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row items-center overflow-scroll">
           {usr_ids.length > 3 ? (
             usr_ids
               .slice(-4)

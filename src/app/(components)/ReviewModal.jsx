@@ -98,10 +98,16 @@ const ReviewModal = (this_media_id) => {
             </div>
           </div>
           <div className="flex flex-row gap-5 mt-2">
-            <button className="text-lg text-black" onClick={handleSubmit}>
+            <button
+              className="text-xs lg:text-lg 2xl:text-xl text-black"
+              onClick={handleSubmit}
+            >
               Hoàn tất
             </button>
-            <button className="text-lg text-black" onClick={handleCloseModal}>
+            <button
+              className="text-xs lg:text-lg 2xl:text-xl text-black"
+              onClick={handleCloseModal}
+            >
               Hủy
             </button>
           </div>

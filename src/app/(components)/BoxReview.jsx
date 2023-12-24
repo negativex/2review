@@ -46,7 +46,7 @@ const SingleReview = ({ review_id }) => {
     return <p>Loading...</p>;
   }
   return (
-    <div className="flex w-1/4 flex-col p-4">
+    <div className="flex w-1/2 xl:w-1/4 flex-col p-4">
       <div className="flex flex-row w-full items-center">
         <div
           className={`${getBackgroundColor(
@@ -72,7 +72,7 @@ const SingleReview = ({ review_id }) => {
         className="flex py-2 2xl:mt-4"
         onClick={() => handleItemClick(data.results[0])}
       >
-        <button className=" bg-btn hover:bg-btn text-white font-normal p-2 px-4 rounded-full">
+        <button className=" bg-btn hover:bg-btn text-white xl:text-sm 2xl:text-lg text-xs font-normal p-2 px-4 rounded-full overflow-hidden whitespace-nowrap overflow-ellipsis">
           Đọc toàn bộ
         </button>
       </div>

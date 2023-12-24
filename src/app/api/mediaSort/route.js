@@ -18,7 +18,7 @@ export async function GET() {
         img: 1,
         trailer: 1,
       })
-      .sort({ published_on: -1 })
+      .sort({ adm_score: -1 })
       .limit(12)
       .toArray();
     return NextResponse.json({ results }, { status: 200 });
@@ -27,17 +27,3 @@ export async function GET() {
     return NextResponse.json({ message: "Error", err }, { status: 500 });
   }
 }
-
-// export async function POST(req) {
-//   try {
-//     const body = await req.json();
-//     const mediaData = body.formData;
-
-//     await Media.create(mediaData);
-
-//     return NextResponse.json({ message: "Media added" }, { status: 201 });
-//   } catch (err) {
-//     console.log(err);
-//     return NextResponse.json({ message: "Error", err }, { status: 500 });
-//   }
-// }
