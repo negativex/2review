@@ -6,6 +6,9 @@ import YTTrailer from "../../(components)/Trailer";
 import CarouselReview from "../../(components)/carouselrv";
 import SingReview from "../../(components)/BoxReview";
 import NewModal from "../../(components)/ReviewModal";
+export const metadata = {
+  title: "2Review: Review",
+};
 const OPTIONS = { slidesToScroll: "auto", containScroll: "trimSnaps" };
 const SLIDE_COUNT = 12;
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys());

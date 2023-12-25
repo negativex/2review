@@ -4,6 +4,9 @@ import YtTrailer from "../(components)/LandingPageTrailer";
 import Carousel3 from "../(components)/carousel3";
 import Carousel2 from "../(components)/carousel2";
 import Carousel1 from "../(components)/carousel1";
+export const metadata = {
+  title: "2Review: To Watch To Review",
+};
 const OPTIONS = { slidesToScroll: "auto", containScroll: "trimSnaps" };
 const OPTION_HoriCard = {};
 const SLIDE_COUNT = 12;
