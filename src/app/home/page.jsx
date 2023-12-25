@@ -6,6 +6,8 @@ import Carousel2 from "../(components)/carousel2";
 import Carousel1 from "../(components)/carousel1";
 export const metadata = {
   title: "2Review: To Watch To Review",
+  description:
+    "Trang web review về phim của nhóm 2 thực hiện cho đồ án môn học Lập Trình WEB - đường dẫn '/home' có nội dung là hiển thị các review phim cho người dùng",
 };
 const OPTIONS = { slidesToScroll: "auto", containScroll: "trimSnaps" };
 const OPTION_HoriCard = {};

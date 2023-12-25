@@ -1,6 +1,11 @@
 import { connectToDatabase } from "../../../mongo/mongodb";
 // import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
+export const metadata = {
+  title: "2Review: API section",
+  description:
+    "Trang web review về phim của nhóm 2 thực hiện cho đồ án môn học Lập Trình WEB",
+};
 
 export async function GET(request, { params }) {
   const { database } = await connectToDatabase();

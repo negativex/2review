@@ -1,7 +1,9 @@
 import Image from "next/image";
 import OneReview from "../../../(components)/HoriReview";
 export const metadata = {
-  title: "2Review: Admin review",
+  title: "2Review: Admin Review",
+  description:
+    "Trang web review về phim của nhóm 2 thực hiện cho đồ án môn học Lập Trình WEB - đường dẫn '/review/adm/id' có nội dung là toàn bộ các review của 1 bộ phim do người quản lý viết",
 };
 const getAllReviewId = async (id) => {
   const res = await fetch(`https://2review-au5e.vercel.app/api/reviews/${id}`, {

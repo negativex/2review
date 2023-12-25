@@ -7,7 +7,9 @@ import CarouselReview from "../../(components)/carouselrv";
 import SingReview from "../../(components)/BoxReview";
 import NewModal from "../../(components)/ReviewModal";
 export const metadata = {
-  title: "2Review: Review",
+  title: "2Review: Review phim",
+  description:
+    "Trang web review về phim của nhóm 2 thực hiện cho đồ án môn học Lập Trình WEB - đường dẫn '/review/id' có nội dung là tổng hợp các điểm số của người dùng và người quản lý về bộ phim",
 };
 const OPTIONS = { slidesToScroll: "auto", containScroll: "trimSnaps" };
 const SLIDE_COUNT = 12;
