@@ -1,6 +1,5 @@
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import { Metadata } from "next";
 import Nav from "./(components)/nav";
 import Footer from "./(components)/footer";
 // import { config } from "@fortawesome/fontawesome-svg-core";

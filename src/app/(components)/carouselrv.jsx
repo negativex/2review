@@ -49,7 +49,7 @@ const CarouselReview = (props) => {
           <div className="embla__container_hot">
             {slides.map((index) => (
               <div
-                className="flex flex-col flex-[0_0_var(--slide-size)] max-w-full min-w-0 pl-[var(--slide-spacing)] relative embla__class-name "
+                className="flex flex-col flex-[0_0_var(--slide-size)] max-w-full min-w-0 pl-[var(--slide-spacing)] relative embla__class-name cursor-pointer"
                 key={index}
                 onClick={() =>
                   handleItemClick(data.results[index % data.results.length]._id)
