@@ -11,7 +11,7 @@ const HotCarousel = (props) => {
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
-      fetch(`/api/carousel`, {
+      fetch(`/api/carouseldate`, {
         cache: "no-store",
       })
         .then((res) => res.json())

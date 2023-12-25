@@ -12,7 +12,7 @@ const CarouselReview = (props) => {
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
-      fetch(`/api/carousel`, {
+      fetch(`/api/carouselscore`, {
         cache: "no-store",
       })
         .then((res) => res.json())
