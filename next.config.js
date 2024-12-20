@@ -3,6 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
+    unoptimized: true,
+    domains: ["52.221.197.208"],
     // limit of 25 deviceSizes values
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     // limit of 25 imageSizes values
@@ -30,11 +32,10 @@ const nextConfig = {
     // limit of 50 objects
     remotePatterns: [
       {
-        protocol: "https",
+        protocol: "http",
         hostname: "**",
       },
     ],
-    unoptimized: false,
   },
 };
 

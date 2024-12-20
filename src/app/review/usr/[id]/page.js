@@ -6,7 +6,7 @@ export const metadata = {
     "Trang web review về phim của nhóm 2 thực hiện cho đồ án môn học Lập Trình WEB - đường dẫn '/review/usr/id' có nội dung là toàn bộ các review của 1 bộ phim do người dùng viết",
 };
 const getAllReviewId = async (id) => {
-  const res = await fetch(`https://2review-au5e.vercel.app/api/reviews/${id}`, {
+  const res = await fetch(`http://2review.tbngoc0100.id.vn/api/reviews/${id}`, {
     cache: "no-store",
   });
   if (!res.ok) {
@@ -15,7 +15,7 @@ const getAllReviewId = async (id) => {
   return res.json();
 };
 const getData = async (id) => {
-  const res = await fetch(`https://2review-au5e.vercel.app/api/media/${id}`, {
+  const res = await fetch(`http://2review.tbngoc0100.id.vn/api/media/${id}`, {
     cache: "no-store",
   });
   if (!res.ok) {
