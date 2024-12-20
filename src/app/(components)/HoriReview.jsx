@@ -1,7 +1,7 @@
 // import Link from "next/link";
 
 const getData = async (id) => {
-  const res = await fetch(`http://2review.tbngoc0100.id.vn/api/review/${id}`, {
+  const res = await fetch(`${process.env.DOMAIN_NAME}/api/review/${id}`, {
     cache: "no-store",
   });
   if (!res.ok) {
