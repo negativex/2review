@@ -1,0 +1,7 @@
+2025-02-19 16:48:14 [32minfo[39m: Request to /api/test: GET http://localhost:3000/api/test
+2025-02-19 16:48:42 [32minfo[39m: Request to /api/users: GET http://localhost:3000/api/media/66a0fed1b133d4995554be32
+2025-02-19 10:03:38 [32minfo[39m: Request to /api/test: GET http://localhost:3000/api/test
+2025-02-19 10:05:46 [32minfo[39m: Request to /api/test: GET http://localhost:3000/api/test
+2025-02-19 10:06:15 [32minfo[39m: Request to /api/users: GET http://localhost:3000/api/media/66a0fed1b133d4995554be3a
+2025-02-19 10:08:43 [32minfo[39m: Request to /api/test: GET http://localhost:3000/api/test
+2025-02-19 10:10:26 [32minfo[39m: Request to /api/users: GET http://localhost:3000/api/media/66a0fed1b133d4995554be3a

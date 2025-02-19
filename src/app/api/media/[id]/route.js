@@ -7,9 +7,12 @@ export const metadata = {
     "Trang web review về phim của nhóm 2 thực hiện cho đồ án môn học Lập Trình WEB",
 };
 
+const logger = require("../../../logger"); // Import logger
+
 export async function GET(request, { params }) {
   const { database } = await connectToDatabase();
   const { id } = params;
+  logger.info(`Request to /api/users: ${request.method} ${request.url}`);
   try {
     const results = await database
       .collection("media")
@@ -32,7 +35,10 @@ export async function GET(request, { params }) {
       .toArray();
     return NextResponse.json({ results }, { status: 200 });
   } catch (err) {
-    console.log(err);
+    logger.error("Error fetching media:", {
+      error: err.message,
+      stack: err.stack,
+    }); // Log bằng Winston
     return NextResponse.json({ message: "Error", err }, { status: 500 });
   }
 }
